@@ -13,7 +13,7 @@ export default createStore({
     },
     stateSingleProduct(state,singleProduct){
       state.singleProduct = singleProduct
-    }
+    },
   },
   actions: {
     fetchProducts: async (context) => {

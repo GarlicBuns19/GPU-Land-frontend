@@ -29,4 +29,9 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
+@media screen and (max-width:350px) {
+  nav{
+    display: none;
+  }
+}
 </style>
