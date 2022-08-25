@@ -3,7 +3,7 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     products : null,
-    singleProducts : null,
+    singleProduct : null,
   },
   getters: {
   },
@@ -11,8 +11,8 @@ export default createStore({
     stateProducts(state,products){
       state.products = products
     },
-    stateSingleProducts(state,singleProducts){
-      state.singleProducts = singleProducts
+    stateSingleProduct(state,singleProduct){
+      state.singleProduct = singleProduct
     }
   },
   actions: {
@@ -21,10 +21,10 @@ export default createStore({
       .then(products => products.json())
       .then(productsJson => context.commit('stateProducts',productsJson.results))
     },
-    fetchSingleProducts: async (context,id) => {
+    fetchSingleProduct: async (context,id) => {
       await fetch(`https://gpu-land.herokuapp.com/products/${id}`)
-      .then(singleProducts => singleProducts.json())
-      .then(singleProductsJson => context.commit('stateSingleProducts',singleProductsJson.results))
+      .then(singleProduct => singleProduct.json())
+      .then(singleProductJson => context.commit('stateSingleProduct',singleProductJson.results))
     }
   },
   modules: {
