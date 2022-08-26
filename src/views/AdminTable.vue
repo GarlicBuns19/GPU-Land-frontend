@@ -15,7 +15,11 @@
         <th scope="col">Memory Clock</th>
         <th scope="col">Edit</th>
         <th scope="col">Delete</th>
-        <th scope="col">Add</th>
+        <th scope="col">
+          <button id="addGpuBtn" class="btn" data-bs-toggle="modal"  data-bs-target="#addGpu">
+             Add Gpu
+          </button>
+             </th>
       </tr>
     </thead>
     <tbody v-if="graphicCards">
@@ -47,6 +51,7 @@
             Delete
           </button>
         </td>
+        <createModel :graphic="graphic" />
         <editModel :graphic="graphic" />
       </tr>
     </tbody>
@@ -54,11 +59,13 @@
   </table>
 </template>
 <script>
+import createModel from '../components/createModel.vue';
 import editModel from "../components/editModel.vue";
 
 export default {
   components: {
     editModel,
+    createModel,
   },
   mounted() {
     this.$store.dispatch("fetchGraphics");
