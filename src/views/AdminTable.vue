@@ -31,8 +31,62 @@
         <td>{{ grapic.memoryBit }} bit</td>
         <td>{{ grapic.gpuClock }} mhz</td>
         <td>{{ grapic.memoryClock }} mhz</td>
-        <td><button>Edit</button></td>
-        <td><button @click="$store.dispatch('deleteProduct',grapic.gpu_id)">Delete</button></td>
+        <td>
+          <!-- Button trigger modal -->
+          <button
+            @click="$store.dispatch('editProduct', grapic.gpu_id)"
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            :data-bs-target="'#exampleModal' + grapic.gpu_id"
+          >
+            Edit Button
+          </button>
+            <!-- Edit Modal -->
+  <div
+    class="modal fade"
+    :id="'exampleModal' + grapic.gpu_id"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <input class="modal-title" id="gpuNoA" v-model="grapic.gpuNoA">
+          <input class="modal-title" id="gpuNoA" v-model="grapic.gpuNrAr">
+        </div>
+        <div class="modal-body">
+          <input class="modal-title" id="gpuGen" v-model="grapic.gpuGen">
+          <input class="modal-title" id="gpuGen" v-model="grapic.gpuChip">
+          <input class="modal-title" id="released" v-model="grapic.released">
+          <input class="modal-title" id="memoryGb" v-model="grapic.memoryGb">
+          <input class="modal-title" id="memoryType" v-model="grapic.memoryType">
+          <input class="modal-title" id="memoryBit" v-model="grapic.memoryBit">
+          <input class="modal-title" id="gpuClock" v-model="grapic.gpuClock">
+          <input class="modal-title" id="memoryClock" v-model="grapic.memoryClock">
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="$store.dispatch('editProduct', grapic.gpu_id)">
+            Edit this GPU
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+        </td>
+        <td>
+          <button @click="$store.dispatch('deleteProduct', grapic.gpu_id)">
+            Delete
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -50,20 +104,22 @@ export default {
 };
 </script>
 <style scoped>
-table,th,td {
+table,
+th,
+td {
   border: 2px solid;
 }
 table {
   background: pink;
   margin: auto;
 }
-th{
-    background: green;
+th {
+  background: green;
 }
-tr:nth-child(even){
-    background: blue;
+tr:nth-child(even) {
+  background: blue;
 }
-tr:nth-child(odd){
-    background: brown;
+tr:nth-child(odd) {
+  background: brown;
 }
 </style>
