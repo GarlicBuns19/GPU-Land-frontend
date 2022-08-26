@@ -18,7 +18,7 @@ export default createStore({
   },
   actions: {
     fetchGraphics: async (context) => {
-      await fetch('http://localhost:4000/products')
+      await fetch('https://gpu-land.herokuapp.com/products')
         .then(graphics => graphics.json())
         .then(graphicsJson => context.commit('stateGraphics', graphicsJson.results))
     },
@@ -28,8 +28,8 @@ export default createStore({
         .then(singlegraphicJson => context.commit('stateSingleGraphic', singlegraphicJson.results))
     },
     editGraphic(context,graphic) {
-      // fetch(`https://gpu-land.herokuapp.com/products/` + graphic.id, {
-      fetch(`http://localhost:4000/products/${graphic.gpu_id}`, {
+      fetch(`https://gpu-land.herokuapp.com/products/` + graphic.gpu_id, {
+      // fetch(`http://localhost:4000/products/${graphic.gpu_id}`, {
           method: 'PUT',
           body: JSON.stringify(graphic),
           headers: {
@@ -44,7 +44,7 @@ export default createStore({
           method: 'DELETE',
         })
         .then((graphics) => graphics.json())
-        .then(() => context.dispatch('fetchgraphics'))
+        .then(() => context.dispatch('fetchGraphics'))
     },
   },
   modules: {}
