@@ -4,57 +4,46 @@ import {
 
 export default createStore({
   state: {
-    products: null,
-    singleProduct: null,
+    graphics: null,
+    singleGraphic: null,
   },
   getters: {},
   mutations: {
-    stateProducts(state, products) {
-      state.products = products
+    stateGraphics(state, graphics) {
+      state.graphics = graphics
     },
-    stateSingleProduct(state, singleProduct) {
-      state.singleProduct = singleProduct
+    stateSingleGraphic(state, singlegraphic) {
+      state.singleGraphic = singlegraphic
     },
   },
   actions: {
-    fetchProducts: async (context) => {
+    fetchGraphics: async (context) => {
       await fetch('https://gpu-land.herokuapp.com/products')
-        .then(products => products.json())
-        .then(productsJson => context.commit('stateProducts', productsJson.results))
+        .then(graphics => graphics.json())
+        .then(graphicsJson => context.commit('stateGraphics', graphicsJson.results))
     },
-    fetchSingleProduct: async (context, id) => {
+    fetchSingleGraphic: async (context, id) => {
       await fetch(`https://gpu-land.herokuapp.com/products/${id}`)
-        .then(singleProduct => singleProduct.json())
-        .then(singleProductJson => context.commit('stateSingleProduct', singleProductJson.results))
+        .then(singlegraphic => singlegraphic.json())
+        .then(singlegraphicJson => context.commit('stateSingleGraphic', singlegraphicJson.results))
     },
-    editProduct(context,id) {
-      fetch(`https://gpu-land.herokuapp.com/products/${id}`, {
+    editGraphic(context,graphic) {
+      fetch(`https://gpu-land.herokuapp.com/products/` + graphic.id, {
           method: 'PUT',
-          body: JSON.stringify({
-            gpuNoA : document.getElementById('gpuNoA').value,
-            gpuNrAr : document.getElementById('gpuNrAr').value,
-            gpuGen : document.getElementById('gpuGen').value,
-            gpuChip : document.getElementById('gpuChip').value,
-            released : document.getElementById('released').value,
-            memoryGb : document.getElementById('memoryGb').value,
-            memoryType : document.getElementById('memoryType').value,
-            memoryBit : document.getElementById('memoryBit').value,
-            gpuClock : document.getElementById('gpuClock').value,
-            memoryClock : document.getElementById('memoryClock').value,
-          }),
+          body: JSON.stringify(graphic),
           headers: {
             'Content-type': 'application/json; charset=UTF-8',
           },
         })
-        .then((editedProduct) => editedProduct.json())
-        .then(() => context.dispatch('fetchProducts'));
+        .then((editedGraphic) => editedGraphic.json())
+        .then(() => context.dispatch('fetchGraphics'));
     },
-    deleteProduct: async(context, id) => {
+    deleteGraphic: async(context, id) => {
       fetch(`https://gpu-land.herokuapp.com/products/${id}`, {
           method: 'DELETE',
         })
-        .then((products) => products.json())
-        .then(() => context.dispatch('fetchProducts'))
+        .then((graphics) => graphics.json())
+        .then(() => context.dispatch('fetchgraphics'))
     },
   },
   modules: {}

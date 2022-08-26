@@ -1,12 +1,12 @@
 <template>
-    <div v-if="singleProduct">
+    <div v-if="singleGraphic">
         <ul>
             <li>
                 <h1>
-                    {{singleProduct[0].gpuNoA}} |
-                    {{singleProduct[0].gpuNrAr}} |
-                    {{singleProduct[0].gpuGen}} |
-                    {{singleProduct[0].gpuChip}}
+                    {{singleGraphic[0].gpuNoA}} |
+                    {{singleGraphic[0].gpuNrAr}} |
+                    {{singleGraphic[0].gpuGen}} |
+                    {{singleGraphic[0].gpuChip}}
                 </h1>
             </li>
         </ul>
@@ -16,11 +16,11 @@
 <script>
 export default {
     mounted(){
-        this.$store.dispatch("fetchSingleProduct", this.$route.params.id)
+        this.$store.dispatch("fetchSingleGraphic", this.$route.params.id)
     },
     computed : {
-        singleProduct(){
-            return this.$store.state.singleProduct
+        singleGraphic(){
+            return this.$store.state.singleGraphic
         }
     }
 }

@@ -18,90 +18,68 @@
         <th scope="col">Add</th>
       </tr>
     </thead>
-    <tbody>
-      <tr v-for="grapic in grapicCards" :key="grapic.gpu_id" scope="row">
-        <td>{{ grapic.gpu_id }}</td>
-        <td>{{ grapic.gpuNoA }}</td>
-        <td>{{ grapic.gpuNrAr }}</td>
-        <td>{{ grapic.gpuGen }}</td>
-        <td>{{ grapic.gpuChip }}</td>
-        <td>{{ grapic.released }}</td>
-        <td>{{ grapic.memoryGb }} GB</td>
-        <td>{{ grapic.memoryType }}</td>
-        <td>{{ grapic.memoryBit }} bit</td>
-        <td>{{ grapic.gpuClock }} mhz</td>
-        <td>{{ grapic.memoryClock }} mhz</td>
+    <tbody v-if="graphicCards">
+      <tr v-for="graphic in graphicCards" :key="graphic.gpu_id" scope="row">
+        <td>{{ graphic.gpu_id }}</td>
+        <td>{{ graphic.gpuNoA }}</td>
+        <td>{{ graphic.gpuNrAr }}</td>
+        <td>{{ graphic.gpuGen }}</td>
+        <td>{{ graphic.gpuChip }}</td>
+        <td>{{ graphic.released }}</td>
+        <td>{{ graphic.memoryGb }} GB</td>
+        <td>{{ graphic.memoryType }}</td>
+        <td>{{ graphic.memoryBit }} bit</td>
+        <td>{{ graphic.gpuClock }} mhz</td>
+        <td>{{ graphic.memoryClock }} mhz</td>
         <td>
           <!-- Button trigger modal -->
           <button
-            @click="$store.dispatch('editProduct', grapic.gpu_id)"
             type="button"
             class="btn btn-primary"
             data-bs-toggle="modal"
-            :data-bs-target="'#exampleModal' + grapic.gpu_id"
+            :data-bs-target="'#edit' + graphic.gpu_id"
           >
             Edit Button
           </button>
-            <!-- Edit Modal -->
-  <div
-    class="modal fade"
-    :id="'exampleModal' + grapic.gpu_id"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <input class="modal-title" id="gpuNoA" v-model="grapic.gpuNoA">
-          <input class="modal-title" id="gpuNoA" v-model="grapic.gpuNrAr">
-        </div>
-        <div class="modal-body">
-          <input class="modal-title" id="gpuGen" v-model="grapic.gpuGen">
-          <input class="modal-title" id="gpuGen" v-model="grapic.gpuChip">
-          <input class="modal-title" id="released" v-model="grapic.released">
-          <input class="modal-title" id="memoryGb" v-model="grapic.memoryGb">
-          <input class="modal-title" id="memoryType" v-model="grapic.memoryType">
-          <input class="modal-title" id="memoryBit" v-model="grapic.memoryBit">
-          <input class="modal-title" id="gpuClock" v-model="grapic.gpuClock">
-          <input class="modal-title" id="memoryClock" v-model="grapic.memoryClock">
-        </div>
-        <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal"
-          >
-            Close
-          </button>
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="$store.dispatch('editProduct', grapic.gpu_id)">
-            Edit this GPU
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
         </td>
         <td>
-          <button @click="$store.dispatch('deleteProduct', grapic.gpu_id)">
+          <button @click="$store.dispatch('deleteGraphic', graphic.gpu_id)">
             Delete
           </button>
         </td>
+        <editModel :graphic="graphic" />
       </tr>
     </tbody>
+    <div v-else>No graphicCards</div>
   </table>
 </template>
 <script>
+import editModel from "../components/editModel.vue";
+
 export default {
+  components: {
+    editModel,
+  },
   mounted() {
-    this.$store.dispatch("fetchProducts");
+    this.$store.dispatch("fetchGraphics");
   },
   computed: {
-    grapicCards() {
-      return this.$store.state.products;
+    graphicCards() {
+      return this.$store.state.graphics;
     },
   },
 };
+// export default {
+//     props : ["graphic"],
+//   mounted() {
+//     this.$store.dispatch("fetchProducts");
+//   },
+//   computed: {
+//     graphicCards() {
+//       return this.$store.state.products;
+//     },
+//   },
+// };
 </script>
 <style scoped>
 table,

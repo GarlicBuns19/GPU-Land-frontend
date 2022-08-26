@@ -1,26 +1,26 @@
 <template>
-    <h1>Products</h1>
-    <div v-if="products">
+    <h1>graphics</h1>
+    <div v-if="graphics">
         <ul>
-            <li v-for="product in products" :key="product.gpu_id">
-                <router-link :to="{name : 'singleProducts', params : {id : product.gpu_id} }">
+            <li v-for="graphic in graphics" :key="graphic.gpu_id">
+                <router-link :to="{name : 'singleProduct', params : {id : graphic.gpu_id} }">
                     <h1>
-                    {{product.gpuNoA}} |
-                    {{product.gpuNrAr}} |
-                    {{product.gpuGen}} |
-                    {{product.gpuChip}}
+                    {{graphic.gpuNoA}} |
+                    {{graphic.gpuNrAr}} |
+                    {{graphic.gpuGen}} |
+                    {{graphic.gpuChip}}
                 </h1>
-                <h2>Year {{product.released}}</h2>
+                <h2>Year {{graphic.released}}</h2>
                 <h2>
-                    {{product.memoryGb}} |
-                    {{product.memoryType}} |
-                    {{product.memoryBit}}
+                    {{graphic.memoryGb}} |
+                    {{graphic.memoryType}} |
+                    {{graphic.memoryBit}}
                 </h2>
                 <p>
-                    {{product.gpuClock}} mhz
+                    {{graphic.gpuClock}} mhz
                 </p>
                 <p>
-                    {{product.memoryClock}} mhz
+                    {{graphic.memoryClock}} mhz
                 </p>
                 </router-link>
             </li>
@@ -31,11 +31,11 @@
 <script>
 export default {
     mounted(){
-        this.$store.dispatch("fetchProducts")
+        this.$store.dispatch("fetchGraphics")
     },
     computed : {
-        products(){
-            return this.$store.state.products
+        graphics(){
+            return this.$store.state.graphics
         }
     }
 }
