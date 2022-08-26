@@ -15,6 +15,7 @@
         <th scope="col">Memory Clock</th>
         <th scope="col">Edit</th>
         <th scope="col">Delete</th>
+        <th scope="col">Add</th>
       </tr>
     </thead>
     <tbody>
@@ -31,7 +32,7 @@
         <td>{{ grapic.gpuClock }} mhz</td>
         <td>{{ grapic.memoryClock }} mhz</td>
         <td><button>Edit</button></td>
-        <td><button>Delete</button></td>
+        <td><button @click="$store.dispatch('deleteProduct',grapic.gpu_id)">Delete</button></td>
       </tr>
     </tbody>
   </table>

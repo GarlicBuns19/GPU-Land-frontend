@@ -25,6 +25,13 @@ export default createStore({
       await fetch(`https://gpu-land.herokuapp.com/products/${id}`)
       .then(singleProduct => singleProduct.json())
       .then(singleProductJson => context.commit('stateSingleProduct',singleProductJson.results))
+    },
+    deleteProduct : (context,id) => {
+      fetch (`https://gpu-land.herokuapp.com/products/${id}`,{
+        method: 'DELETE',
+      })
+      .then(products => products.json())
+      .then(() => context.dispatch('fetchProducts'))
     }
   },
   modules: {
