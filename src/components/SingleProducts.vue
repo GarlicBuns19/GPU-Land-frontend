@@ -4,6 +4,7 @@
             <li>
                 <h1>
                     {{singleGraphic[0].gpuNoA}} |
+                    {{singleGraphic[0].gpuFront_Img}} |
                     {{singleGraphic[0].gpuNrAr}} |
                     {{singleGraphic[0].gpuGen}} |
                     {{singleGraphic[0].gpuChip}}

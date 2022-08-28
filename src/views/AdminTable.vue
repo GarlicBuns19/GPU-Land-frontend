@@ -3,6 +3,7 @@
     <thead>
       <tr>
         <th scope="col">GPU Id</th>
+        <th scope="col">GPU Front Img</th>
         <th scope="col">GPU NoA</th>
         <th scope="col">GPU NrAr</th>
         <th scope="col">Series</th>
@@ -25,6 +26,7 @@
     <tbody v-if="graphicCards">
       <tr v-for="graphic in graphicCards" :key="graphic.gpu_id" scope="row">
         <td>{{ graphic.gpu_id }}</td>
+        <td><img :src="graphic.gpuFront_Img" alt=""> </td>
         <td>{{ graphic.gpuNoA }}</td>
         <td>{{ graphic.gpuNrAr }}</td>
         <td>{{ graphic.gpuGen }}</td>

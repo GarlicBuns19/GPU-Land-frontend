@@ -13,6 +13,12 @@
                   <input
                     type="text"
                     class="modal-title"
+                    id="gpuFront_Img"
+                    v-model="graphic.gpuFront_Img"
+                  />
+                  <input
+                    type="text"
+                    class="modal-title"
                     id="gpuNoA"
                     v-model="graphic.gpuNoA"
                   />

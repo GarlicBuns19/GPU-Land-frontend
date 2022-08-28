@@ -6,6 +6,7 @@
                 <router-link :to="{name : 'singleProduct', params : {id : graphic.gpu_id} }">
                     <h1>
                     {{graphic.gpuNoA}} |
+                    <img :src="graphic.gpuFront_Img" alt=""> |
                     {{graphic.gpuNrAr}} |
                     {{graphic.gpuGen}} |
                     {{graphic.gpuChip}}

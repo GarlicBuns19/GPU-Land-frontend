@@ -26,6 +26,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background: #1f1f1f;
+}
+*{
+  margin: 0;
+  padding: 0;
 }
 
 /* nav {

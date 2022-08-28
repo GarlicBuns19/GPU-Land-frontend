@@ -20,6 +20,19 @@
         <div class="modal-body">
           <div class="row">
             <div class="col-md-12 mx-auto">
+             <!-- Gpu Front Img -->
+              <div class="mb-3">
+                <label for="gpuFront_Img" class="form-label">Gpu Front Img:</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  v-model="gpuFront_Img"
+                  name="gpuFront_Img"
+                  id="gpuFront_Img"
+                  placeholder="Gpu Front Img"
+                  required
+                />
+              </div>
              <!-- Gpu N or A -->
               <div class="mb-3">
                 <label for="gpuNoA" class="form-label">Gpu N or A:</label>
@@ -173,22 +186,24 @@
 export default {
   data() {
     return {
-      gpuNoA : '',
-      gpuNrAr : '',
-      gpuGen : '',
-      gpuChip : '',
-      released : '',
-      memoryGb : '',
-      memoryType : '',
-      memoryBit : '',
-      gpuClock : '',
-      memoryClock : '',
+      gpuFront_Img : null,
+      gpuNoA : null,
+      gpuNrAr : null,
+      gpuGen : null,
+      gpuChip : null,
+      released : null,
+      memoryGb : null,
+      memoryType : null,
+      memoryBit : null,
+      gpuClock : null,
+      memoryClock : null,
     };
   },
   methods: {
     addGpu() {
       return this.$store.dispatch("addGraphic", {
-        gpuNoA : this.gpuNoA,
+          gpuFront_Img : this.gpuFront_Img,
+          gpuNoA : this.gpuNoA,
           gpuNrAr : this.gpuNrAr,
           gpuGen : this.gpuGen,
           gpuChip : this.gpuChip,
