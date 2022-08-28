@@ -19,9 +19,8 @@
         </div>
         <div class="modal-body">
           <div class="row">
-            <div class="col-md-12 mx-auto">
+            <div class="col-md-6 mx-auto mb-3">
              <!-- Gpu Front Img -->
-              <div class="mb-3">
                 <label for="gpuFront_Img" class="form-label">Gpu Front Img:</label>
                 <input
                   class="form-control"
@@ -32,9 +31,9 @@
                   placeholder="Gpu Front Img"
                   required
                 />
-              </div>
+            </div>
              <!-- Gpu N or A -->
-              <div class="mb-3">
+              <div class="col-md-6 mx-auto mb-3">
                 <label for="gpuNoA" class="form-label">Gpu N or A:</label>
                 <input
                   class="form-control"
@@ -47,7 +46,7 @@
                 />
               </div>
             <!-- Gpu NrAr -->
-              <div class="mb-3">
+              <div class="col-md-6 mx-auto mb-3">
                 <label for="gpuNrAr" class="form-label">Gpu NrAr</label>
                 <input
                   class="form-control"
@@ -59,7 +58,7 @@
                 />
               </div>
              <!-- Gpu Gen-->
-              <div class="mb-3">
+              <div class="col-md-6 mx-auto mb-3">
                 <label for="gpuGen" class="form-label">Gpu Gen</label>
                 <input
                   class="form-control"
@@ -71,7 +70,7 @@
                 />
               </div>
              <!-- Gpu Chip -->
-              <div class="mb-3">
+              <div class="col-md-6 mx-auto mb-3">
                 <label for="gpuChip" class="form-label">Gpu Chip</label>
                 <input
                   class="form-control"
@@ -83,7 +82,7 @@
                 />
               </div>
              <!-- Year Released -->
-              <div class="mb-3">
+              <div class="col-md-6 mx-auto mb-3">
                 <label for="released" class="form-label">Year Released</label>
                 <input
                   class="form-control"
@@ -96,7 +95,7 @@
               </div>
 
               <!-- Gpu VRAM -->
-                <div class="mb-3">
+                <div class="col-md-6 mx-auto mb-3">
                 <label for="memoryGb" class="form-label">Gpu VRAM (GB)</label>
                 <input
                   class="form-control"
@@ -109,7 +108,7 @@
               </div>
             
               <!-- Memory Type -->
-              <div class="mb-3">
+              <div class="col-md-6 mx-auto mb-3">
                 <label for="memoryType" class="form-label">Memory Type</label>
                 <input
                   class="form-control"
@@ -122,7 +121,7 @@
               </div>
 
               <!-- How much BUS -->
-              <div class="mb-3">
+              <div class="col-md-6 mx-auto mb-3">
                 <label for="memoryBit" class="form-label">How much BUS</label>
                 <input
                   class="form-control"
@@ -134,7 +133,7 @@
                 />
               </div>
               <!-- Gpu Clock -->
-                <div class="mb-3">
+                <div class="col-md-6 mx-auto mb-3">
                 <label for="gpuClock" class="form-label">Gpu Clock</label>
                 <input
                   class="form-control"
@@ -146,7 +145,7 @@
                 />
               </div>
               <!-- Memory Clock -->
-                <div class="mb-3">
+                <div class="col-md-6 mx-auto mb-3">
                 <label for="memoryClock" class="form-label">Memory Clock</label>
                 <input
                   class="form-control"
@@ -179,8 +178,8 @@
         </div>
       </div>
     </div>
-  </div>
-  
+
+
 </template>
 <script>
 export default {

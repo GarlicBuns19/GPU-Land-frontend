@@ -26,7 +26,11 @@
     <tbody v-if="graphicCards">
       <tr v-for="graphic in graphicCards" :key="graphic.gpu_id" scope="row">
         <td>{{ graphic.gpu_id }}</td>
-        <td><img :src="graphic.gpuFront_Img" alt=""> </td>
+        <td>
+          <div v-if="graphic.gpuFront_Img">
+            <img :src="graphic.gpuFront_Img" alt="">
+          </div>
+        </td>
         <td>{{ graphic.gpuNoA }}</td>
         <td>{{ graphic.gpuNrAr }}</td>
         <td>{{ graphic.gpuGen }}</td>
@@ -108,5 +112,9 @@ tr:nth-child(even) {
 }
 tr:nth-child(odd) {
   background: brown;
+}
+img{
+  width: 200px;
+  height: 200px;
 }
 </style>
