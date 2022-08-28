@@ -1,22 +1,22 @@
 <template>
-  <table class="table-responsive-lg">
+  <table>
     <thead>
       <tr>
-        <th scope="col">GPU Id</th>
-        <th scope="col">GPU Front Img</th>
-        <th scope="col">GPU NoA</th>
-        <th scope="col">GPU NrAr</th>
-        <th scope="col">Series</th>
-        <th scope="col">GPU Chip</th>
-        <th scope="col">Year</th>
-        <th scope="col">VRAM</th>
-        <th scope="col">GDDR Type</th>
-        <th scope="col">Bit size</th>
-        <th scope="col">GPU Clock</th>
-        <th scope="col">Memory Clock</th>
-        <th scope="col">Edit</th>
-        <th scope="col">Delete</th>
-        <th scope="col">
+        <th>GPU Id</th>
+        <th>GPU Front Img</th>
+        <th>GPU NoA</th>
+        <th>GPU NrAr</th>
+        <th>Series</th>
+        <th>GPU Chip</th>
+        <th>Year</th>
+        <th>VRAM</th>
+        <th>GDDR Type</th>
+        <th>Bit size</th>
+        <th>GPU Clock</th>
+        <th>Memory Clock</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>
           <button id="addGpuBtn" class="btn" data-bs-toggle="modal"  data-bs-target="#addGpu">
              Add Gpu
           </button>
@@ -28,7 +28,7 @@
         <td>{{ graphic.gpu_id }}</td>
         <td>
           <div v-if="graphic.gpuFront_Img">
-            <img :src="graphic.gpuFront_Img" alt="">
+            <img :src="graphic.gpuFront_Img" alt="" class="img-fluid">
           </div>
         </td>
         <td>{{ graphic.gpuNoA }}</td>

@@ -9,7 +9,7 @@
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add Mustang</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Add Gpu</h5>
           <button
             type="button"
             class="btn-close"
@@ -41,7 +41,7 @@
                   v-model="gpuNoA"
                   name="gpuNoA"
                   id="gpuNoA"
-                  placeholder="GEforce or Radean"
+                  placeholder="Geforce or Radean"
                   required
                 />
               </div>
