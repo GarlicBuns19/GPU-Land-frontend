@@ -4,6 +4,7 @@ export default createStore({
   state: {
     graphics: null,
     singleGraphic: null,
+    user: null,
   },
   getters: {},
   mutations: {
@@ -12,6 +13,9 @@ export default createStore({
     },
     stateSingleGraphic(state, singlegraphic) {
       state.singleGraphic = singlegraphic;
+    },
+    stateUser(state, user) {
+      state.user = user;
     },
   },
   actions: {
@@ -97,6 +101,25 @@ export default createStore({
           console.log(data);
           context.dispatch("fetchGraphics")
         })
+    },
+    login: async (context, data) => {
+      console.log("Hi")
+      fetch("http://localhost:3001/login", {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8'
+          }
+        })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data)
+          let user = data.msg
+          context.commit("stateUser", user);
+        // .then(() => console.log(context.state.user))
+          // alert('Login in success')
+        // router.push("/products");
+        });
     },
   },
   modules: {},

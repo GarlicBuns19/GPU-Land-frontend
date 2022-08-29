@@ -29,6 +29,11 @@ const routes = [
     component: () => import('../views/AdminTable.vue'),
     props: true
   },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/Login.vue'),
+  },
 ]
 
 const router = createRouter({
