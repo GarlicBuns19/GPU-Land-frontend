@@ -82,17 +82,6 @@ export default {
     },
   },
 };
-// export default {
-//     props : ["graphic"],
-//   mounted() {
-//     this.$store.dispatch("fetchProducts");
-//   },
-//   computed: {
-//     graphicCards() {
-//       return this.$store.state.products;
-//     },
-//   },
-// };
 </script>
 <style scoped>
 table,
