@@ -102,6 +102,19 @@ export default createStore({
           context.dispatch("fetchGraphics")
         })
     },
+    register: async (context,data) => {
+      console.log("Sup")
+      await fetch('http://localhost:3001/register' , {
+        method:"POST",
+        body: JSON.stringify(data),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8'
+        }
+      })
+      .then(res => res.json())
+      .then(userData => console.log(userData))
+    }
+    ,
     login: async (context, data) => {
       console.log("Hi")
       fetch("http://localhost:3001/login", {
