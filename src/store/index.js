@@ -9,6 +9,7 @@ export default createStore({
     user: null || JSON.parse(localStorage.getItem('user')),
     msg: null,
     admin: false,
+    users: null,
   },
   getters: {},
   mutations: {
@@ -22,6 +23,9 @@ export default createStore({
       state.user = user;
       localStorage.setItem('user', JSON.stringify(user))
     },
+    stateAllUsers(state,users){
+      state.users = users
+    }
   },
   actions: {
     admincheck: (context) => {
@@ -149,6 +153,12 @@ export default createStore({
           // router.push("/products");
         });
     },
+    fetchUsers : async (context) => {
+      await fetch('https://gpu-land.herokuapp.com/users')
+      .then(res => res.json())
+      // .then(p => console.log(p.results))
+      .then(allUsers => context.commit('stateAllUsers',allUsers.results))
+    } 
   },
   modules: {},
 });

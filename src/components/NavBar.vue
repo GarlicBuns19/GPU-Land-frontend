@@ -3,7 +3,8 @@
   <router-link to="/about">About</router-link> |
   <router-link to="/products">Products</router-link> |
   <div v-if="admin">
-    <router-link to="/admin">Admin</router-link> |
+    <router-link to="/admin/products">Admin Products</router-link> |
+    <router-link to="/admin/users">Admin Users</router-link> |
     </div>
   <router-link to="/register">Register</router-link> |
   <router-link to="/login" @click="hello">Login</router-link> |

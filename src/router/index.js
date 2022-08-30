@@ -24,9 +24,15 @@ const routes = [
     props: true
   },
   {
-    path: '/admin',
-    name: 'admin',
-    component: () => import('../views/AdminTable.vue'),
+    path: '/admin/products',
+    name: 'adminProducts',
+    component: () => import('../views/AdminProducts.vue'),
+    props: true
+  },
+  {
+    path: '/admin/users',
+    name: 'adminUsers',
+    component: () => import('../views/AdminUsers.vue'),
     props: true
   },
   {
