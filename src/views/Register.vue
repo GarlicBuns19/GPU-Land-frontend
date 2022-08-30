@@ -41,6 +41,9 @@
     </div> -->
     <button class="btn form-control" type="submit">Register</button>
   </form>
+  <div v-if="msg">
+    {{msg}}
+  </div>
 </template>
 
 <script>
@@ -54,11 +57,11 @@ export default {
       clicked: false,
     };
   },
-  //   computed: {
-  //     user() {
-  //       return this.$store.state.user;
-  //     },
-  //   },
+    computed: {
+      msg() {
+        return this.$store.state.msg;
+      },
+    },
   methods: {
     registerUser() {
       const user = {
