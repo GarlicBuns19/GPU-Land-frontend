@@ -4,7 +4,7 @@ export default createStore({
   state: {
     graphics: null,
     singleGraphic: null,
-    user: null,
+    user: null || localStorage.getItem(JSON.parse(localStorage.getItem('user'))),
   },
   getters: {},
   mutations: {
@@ -15,21 +15,22 @@ export default createStore({
       state.singleGraphic = singlegraphic;
     },
     stateUser(state, user) {
+      JSON.stringify(localStorage.setItem('user', user))
       state.user = user;
     },
   },
   actions: {
     fetchGraphics: async (context) => {
-      // await fetch("https://gpu-land.herokuapp.com/products")
-      await fetch("http://localhost:3001/products")
+      await fetch("https://gpu-land.herokuapp.com/products")
+      // await fetch("http://localhost:3001/products")
         .then((graphics) => graphics.json())
         .then((graphicsJson) =>
           context.commit("stateGraphics", graphicsJson.results)
         );
     },
     fetchSingleGraphic: async (context, id) => {
-      // await fetch(`https://gpu-land.herokuapp.com/products/${id}`)
-      await fetch(`http://localhost:3001/products/${id}`)
+      await fetch(`https://gpu-land.herokuapp.com/products/${id}`)
+      // await fetch(`http://localhost:3001/products/${id}`)
         .then((singlegraphic) => singlegraphic.json())
         .then((singlegraphicJson) =>
           context.commit("stateSingleGraphic", singlegraphicJson.results)
@@ -50,8 +51,8 @@ export default createStore({
         gpuClock,
         memoryClock,
       } = payload;
-      // fetch("https://gpu-land.herokuapp.com/products", {
-      fetch("http://localhost:3001/products", {
+      fetch("https://gpu-land.herokuapp.com/products", {
+      // fetch("http://localhost:3001/products", {
         method: "POST",
         body: JSON.stringify({
           gpuFront_Img : gpuFront_Img,
@@ -76,8 +77,8 @@ export default createStore({
     },
     // Edit GPU
     editGraphic(context, graphic) {
-      // fetch(`https://gpu-land.herokuapp.com/products/` + graphic.gpu_id, {
-        fetch(`http://localhost:3001/products/${graphic.gpu_id}`, {
+      fetch(`https://gpu-land.herokuapp.com/products/` + graphic.gpu_id, {
+        // fetch(`http://localhost:3001/products/${graphic.gpu_id}`, {
         method: "PUT",
         body: JSON.stringify(graphic),
         headers: {
@@ -91,8 +92,8 @@ export default createStore({
         });
     },
     deleteGraphic: async (context, id) => {
-      // fetch(`https://gpu-land.herokuapp.com/products/${id}`, {
-      fetch(`http://localhost:3001/products/${id}`, {
+      fetch(`https://gpu-land.herokuapp.com/products/${id}`, {
+      // fetch(`http://localhost:3001/products/${id}`, {
         method: "DELETE",
       })
         .then((graphics) => graphics.json())
