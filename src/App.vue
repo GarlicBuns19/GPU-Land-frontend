@@ -28,7 +28,9 @@ export default {
   margin: 0;
   padding: 0;
 }
-
+:root {
+  --eletric-blue : #59cbe8
+}   
 /* nav {
   padding: 30px;
 }

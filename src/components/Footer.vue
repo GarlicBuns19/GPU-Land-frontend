@@ -64,7 +64,7 @@ p {
   padding: 0 10px;
 }
 #footer a {
-  color: #59cbe8;
+  color: var(--eletric-blue);
 }
 #icon {
   transition: 0.6s;

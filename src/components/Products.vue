@@ -76,12 +76,9 @@ export default {
   display: inline-block;
   vertical-align: top;
 }
-
-/*
-  Set the color of the icon
-*/
+/* Set the color of the icon */
 svg path,
 svg rect{
-  fill: #FF6700;
+  fill: var(--eletric-blue);
 }
 </style>
