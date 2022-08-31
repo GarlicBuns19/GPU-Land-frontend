@@ -10,6 +10,7 @@ export default createStore({
     msg: null,
     admin: false,
     users: null,
+    userUser: false,
   },
   getters: {},
   mutations: {
@@ -34,7 +35,15 @@ export default createStore({
         if (user.userRole === "admin") {
           context.state.admin = true
         }
+        if (user.userRole === "user") {
+          context.state.userUser = true
+        }
       }
+    },
+    logout : (context) => {
+      localStorage.removeItem('user');
+      window.location.reload()
+      console.log(context.state.user)
     },
     fetchGraphics: async (context) => {
       await fetch("https://gpu-land.herokuapp.com/products")
@@ -158,7 +167,7 @@ export default createStore({
       .then(res => res.json())
       // .then(p => console.log(p.results))
       .then(allUsers => context.commit('stateAllUsers',allUsers.results))
-    } 
+    }
   },
   modules: {},
 });
