@@ -49,7 +49,6 @@
 
 <style scoped>
 #footer {
-  padding: 0 0 10px 0;
   color: hsl(0, 0%, 70%);
   text-align: left;
 }

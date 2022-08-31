@@ -1,6 +1,11 @@
 <template>
 <!-- Navbar -->
-  <button
+  <div>
+    <div id="logo">
+      <img src="https://i.postimg.cc/CxHXhbJw/graphics-card-removebg-preview.png" alt="" class="img-fluid">
+    </div>
+    <img src="https://i.postimg.cc/jj1c6hh6/logo-fan.png" alt="" class="img-fluid" id="logo2">
+    <button
     class="btn btn-primary"
     type="button"
     data-bs-toggle="offcanvas"
@@ -9,6 +14,7 @@
   >
     Navigation
   </button>
+  </div>
   <!-- Cart -->
   <div v-if="admin">
         <button
@@ -102,3 +108,27 @@ export default {
   components: { Cart },
 };
 </script>
+<style scoped>
+#logo{
+  width: 100px;
+  height: 100px;
+  margin: 0 10px 0 0;
+  position: relative;
+}
+#logo2{
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  top: 26px;
+  left: 52.6px;
+  animation: rotation 3s infinite linear;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+</style>
