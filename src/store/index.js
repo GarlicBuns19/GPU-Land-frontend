@@ -10,6 +10,7 @@ export default createStore({
     msg: null,
     admin: false,
     users: null,
+    singleUser: null,
     userUser: false,
   },
   getters: {},
@@ -26,6 +27,9 @@ export default createStore({
     },
     stateAllUsers(state,users){
       state.users = users
+    },
+    stateSingleUser(state,user){
+      state.singleUser = user
     }
   },
   actions: {
@@ -167,6 +171,15 @@ export default createStore({
       .then(res => res.json())
       // .then(p => console.log(p.results))
       .then(allUsers => context.commit('stateAllUsers',allUsers.results))
+    },
+    fetchSingleUser : async (context,id) => {
+      await fetch(`https://gpu-land.herokuapp.com/users/${id}`)
+      .then(res => res.json())
+      .then(user => {
+        console.log(user.results)
+        console.log(user.msg)
+        context.commit('stateSingleUser',user.results)
+      })
     }
   },
   modules: {},

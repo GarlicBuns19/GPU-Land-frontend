@@ -6,9 +6,10 @@
     <router-link to="/admin/products">Admin Products</router-link> |
     <router-link to="/admin/users">Admin Users</router-link> |
     <button @click="logout">Logout</button> |
+        <router-link to="/userProfile">User Profile</router-link> |
     </div>
   <div v-if="userUser">
-    <router-link to="/user">User Profile</router-link> |
+    <router-link to="/userProfile">User Profile</router-link> |
     <button @click="logout">Logout</button> |
   </div>
   <div v-if="userUser == false || admin == false">
