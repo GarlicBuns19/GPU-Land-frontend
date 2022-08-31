@@ -1,11 +1,7 @@
 <template>
-  <nav>
     <NavBar/>
-  </nav>
   <router-view/>
-  <footer>
     <Footer/>
-  </footer>
 </template>
 <script>
 import NavBar from './components/NavBar.vue'

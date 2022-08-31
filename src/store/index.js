@@ -25,10 +25,10 @@ export default createStore({
       state.user = user;
       localStorage.setItem('user', JSON.stringify(user))
     },
-    stateAllUsers(state,users){
+    stateAllUsers(state, users) {
       state.users = users
     },
-    stateSingleUser(state,user){
+    stateSingleUser(state, user) {
       state.singleUser = user
     }
   },
@@ -44,7 +44,7 @@ export default createStore({
         }
       }
     },
-    logout : (context) => {
+    logout: (context) => {
       localStorage.removeItem('user');
       window.location.reload()
       console.log(context.state.user)
@@ -161,25 +161,48 @@ export default createStore({
           if (user.userRole === "admin") {
             context.state.admin = true
           }
-          // .then(() => console.log(context.state.user))
-          //   alert('Login in success')
-          // router.push("/products");
         });
     },
-    fetchUsers : async (context) => {
+    fetchUsers: async (context) => {
       await fetch('https://gpu-land.herokuapp.com/users')
-      .then(res => res.json())
-      // .then(p => console.log(p.results))
-      .then(allUsers => context.commit('stateAllUsers',allUsers.results))
+        .then(res => res.json())
+        .then(allUsers => context.commit('stateAllUsers', allUsers.results))
     },
-    fetchSingleUser : async (context,id) => {
+    fetchSingleUser: async (context, id) => {
       await fetch(`https://gpu-land.herokuapp.com/users/${id}`)
-      .then(res => res.json())
-      .then(user => {
-        console.log(user.results)
-        console.log(user.msg)
-        context.commit('stateSingleUser',user.results)
-      })
+        .then(res => res.json())
+        .then(user => {
+          console.log(user.results)
+          console.log(user.msg)
+          context.commit('stateSingleUser', user.results)
+        })
+    },
+    editUser: async (context, user) => {
+      // fetch("http://localhost:3000/products/" + product.id, {
+      fetch("http://localhost:3001/users/" + user.user_id, {
+          method: "PUT",
+          body: JSON.stringify(user),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          }
+        })
+        .then((res) => res.json())
+        .then((data) => {
+          // alert(data.msg);
+          console.log(data);
+          context.dispatch("fetchUsers");
+        });
+    },
+    deleteUser: async (context, userid) => {
+      fetch(`https://gpu-land.herokuapp.com/users/${userid}`, {
+          // fetch(`http://localhost:3001/products/${id}`, {
+          method: "DELETE",
+        })
+        .then((users) => users.json())
+        .then((data) => {
+          console.log(data.msg);
+          context.dispatch("fetchUsers")
+        })
     }
   },
   modules: {},

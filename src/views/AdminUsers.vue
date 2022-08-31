@@ -16,6 +16,14 @@
         <td>
           <h1>{{user.userLName}}</h1>
         </td>
+          <button 
+           type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            :data-bs-target="'#updateuser' + user.user_id"
+          >Edit</button>
+          <button @click="this.$store.dispatch('deleteUser',user.user_id)">Delete</button>
+      <editUserModal :user="user"/>
       </tr>
     </tbody>
     <div v-else>No users</div>
@@ -24,6 +32,7 @@
   
 </template>
 <script>
+import editUserModal from '../components/editUserModal.vue'
 
 export default {
   mounted(){
@@ -33,6 +42,9 @@ export default {
     allUsers(){
       return this.$store.state.users
     }
+  },
+  components : {
+    editUserModal
   }
 }
 </script>
