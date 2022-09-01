@@ -21,6 +21,7 @@
           <h2>Released in {{ singleGraphic[0].released }}</h2>
         </div>
       </div>
+      <button @click="this.$store.dispatch('addCart',singleGraphic[0])">Add to cart</button>
     </div>
   </div>
   <div v-else>Nothing to look at</div>

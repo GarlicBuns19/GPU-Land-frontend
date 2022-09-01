@@ -12,6 +12,7 @@ export default createStore({
     users: null,
     singleUser: null,
     userUser: false,
+    cart: null
   },
   getters: {},
   mutations: {
@@ -30,6 +31,10 @@ export default createStore({
     },
     stateSingleUser(state, user) {
       state.singleUser = user
+    },
+    setCart(state, cart) {
+      state.cart = cart
+      console.log(cart);
     }
   },
   actions: {
@@ -42,6 +47,7 @@ export default createStore({
         if (user.userRole === "user") {
           context.state.userUser = true
         }
+        context.dispatch('getCart')
       }
     },
     logout: (context) => {
@@ -51,7 +57,7 @@ export default createStore({
     },
     fetchGraphics: async (context) => {
       // await fetch("https://gpu-land.herokuapp.com/products")
-        await fetch("http://localhost:3001/products")
+      await fetch("http://localhost:3001/products")
         .then((graphics) => graphics.json())
         .then((graphicsJson) =>
           context.commit("stateGraphics", graphicsJson.results)
@@ -59,7 +65,7 @@ export default createStore({
     },
     fetchSingleGraphic: async (context, id) => {
       // await fetch(`https://gpu-land.herokuapp.com/products/${id}`)
-        await fetch(`http://localhost:3001/products/${id}`)
+      await fetch(`http://localhost:3001/products/${id}`)
         .then((singlegraphic) => singlegraphic.json())
         .then((singlegraphicJson) =>
           context.commit("stateSingleGraphic", singlegraphicJson.results)
@@ -81,7 +87,7 @@ export default createStore({
         memoryClock,
       } = payload;
       // fetch("https://gpu-land.herokuapp.com/products", {
-          fetch("http://localhost:3001/products", {
+      fetch("http://localhost:3001/products", {
           method: "POST",
           body: JSON.stringify({
             gpuFront_Img: gpuFront_Img,
@@ -107,7 +113,7 @@ export default createStore({
     // Edit GPU
     editGraphic(context, graphic) {
       // fetch(`https://gpu-land.herokuapp.com/products/` + graphic.gpu_id, {
-          fetch(`http://localhost:3001/products/${graphic.gpu_id}`, {
+      fetch(`http://localhost:3001/products/${graphic.gpu_id}`, {
           method: "PUT",
           body: JSON.stringify(graphic),
           headers: {
@@ -122,7 +128,7 @@ export default createStore({
     },
     deleteGraphic: async (context, id) => {
       // fetch(`https://gpu-land.herokuapp.com/products/${id}`, {
-          fetch(`http://localhost:3001/products/${id}`, {
+      fetch(`http://localhost:3001/products/${id}`, {
           method: "DELETE",
         })
         .then((graphics) => graphics.json())
@@ -196,7 +202,7 @@ export default createStore({
     },
     deleteUser: async (context, userid) => {
       // fetch(`https://gpu-land.herokuapp.com/users/${userid}`, {
-          fetch(`http://localhost:3001/users/${userid}`, {
+      fetch(`http://localhost:3001/users/${userid}`, {
           method: "DELETE",
         })
         .then((users) => users.json())
@@ -204,7 +210,72 @@ export default createStore({
           console.log(data.msg);
           context.dispatch("fetchUsers")
         })
-    }
+    },
+    // Cart
+    getCart: async (context, id) => {
+      id = context.state.user.user_id
+      await fetch(`http://localhost:3001/users/${id}/cart`, {
+          method: "GET",
+          headers: {
+            "Content-type": "application/json; charset=UTF-8"
+          },
+        })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data)
+          if (data != null) {
+            context.commit("setCart", (data));
+          }
+        });
+    },
+    addCart: async (context, item, id) => {
+      console.log(context.state.cart)
+      id = context.state.user.user_id;
+      console.log(item);
+      await fetch("http://localhost:3001/users/" + id + "/cart", {
+          method: "POST",
+          body: JSON.stringify(item),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          context.dispatch("getCart", id);
+        });
+    },
+    clearCart: async (context, id) => {
+      id = context.state.user.user_id
+      await fetch("http://localhost:3001/users/" + id + "/cart", {
+          method: "DELETE",
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          context.dispatch("getCart", id);
+        });
+    },
+    deleteCart: async (context, list, id) => {
+      id = context.state.user.user_id;
+      await fetch(
+          "http://localhost:3001/users/" + id + "/cart/" + list.cart_id, {
+            method: "DELETE",
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+              "x-auth-token": context.state.token,
+            },
+          }
+        )
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          context.dispatch("getCart", id);
+        });
+    },
   },
   modules: {},
 });
