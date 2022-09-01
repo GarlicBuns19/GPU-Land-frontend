@@ -30,7 +30,7 @@
       </div>
   <!-- Off Canvas Nav -->
   <div
-    class="offcanvas offcanvas-start"
+    class="offcanvas offcanvas-start nav"
     tabindex="-1"
     id="offcanvasRight"
     aria-labelledby="offcanvasRightLabel"
@@ -109,6 +109,9 @@ export default {
 };
 </script>
 <style scoped>
+nav{
+    background-color: rgba(0, 0, 0, 0.44) !important;
+}
 #logo{
   position: relative;
 }

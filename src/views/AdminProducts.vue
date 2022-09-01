@@ -103,7 +103,8 @@ tr:nth-child(odd) {
   background: brown;
 }
 img{
-  width: 200px;
-  height: 200px;
+  width: 400px;
+  height: 210px;
+  object-fit: cover;
 }
 </style>
