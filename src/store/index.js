@@ -224,7 +224,7 @@ export default createStore({
         .then((data) => {
           console.log(data)
           if (data != null) {
-            context.commit("setCart", (data));
+            context.commit("setCart", data.results);
           }
         });
     },
@@ -256,7 +256,7 @@ export default createStore({
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          context.dispatch("getCart", id);
+      context.dispatch("getCart", id);
         });
     },
     deleteCart: async (context, list, id) => {

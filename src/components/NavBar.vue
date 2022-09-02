@@ -23,11 +23,14 @@
           data-bs-toggle="offcanvas"
           data-bs-target="#cart"
           aria-controls="cart"
+          @click="this.$store.dispatch('getCart', user.user_id)"
+              >
+                <i class="bi bi-cart3">{{ num }}</i>
         >
           Cart
         </button>
         <Cart />
-      </div>
+  </div>
   <!-- Off Canvas Nav -->
   <div
     class="offcanvas offcanvas-start nav"
@@ -96,6 +99,16 @@ export default {
     userUser() {
       return this.$store.state.userUser;
     },
+    num: function () {
+      let Cnum = this.$store.state.cart;
+      if (Cnum === null || Cnum === undefined) {
+        Cnum = 0;
+        return Cnum;
+      } else {
+        // Cnum.length
+        let i = Cnum.length;
+        return (i);
+      }}
   },
   methods: {
     logout() {
