@@ -2,7 +2,7 @@
   <div class="container">
     <div v-if="graphics" class="row">
       <div class="col-md-4" v-for="graphic in graphics" :key="graphic.gpu_id">
-        <div class="card" style="height: 450px;">
+        <div class="card my-3" style="height: 480px">
           <img :src="graphic.gpuFront_Img" class="card-img-top" alt="..." />
           <div class="card-body">
             <h3 class="card-title">
@@ -10,14 +10,15 @@
               {{ graphic.gpuChip }}
             </h3>
             <h3>Year {{ graphic.released }}</h3>
-            <h3>
+            <p>
               {{ graphic.memoryGb }} GB , {{ graphic.memoryType }} ,
               {{ graphic.memoryBit }} Bit
-            </h3>
+            </p>
             <p class="card-text">
               {{ graphic.gpuClock }} mhz {{ graphic.memoryClock }} mhz
             </p>
-            <router-link id="viewGpuBtn"
+            <router-link
+              id="viewGpuBtn"
               :to="{ name: 'singleProduct', params: { id: graphic.gpu_id } }"
             >
               <button>View Gpu</button>
@@ -76,10 +77,20 @@
           </rect>
         </svg>
       </div> -->
-    <div id="load">
-      <img src="https://i.postimg.cc/fWGTjSPh/graphics-card-removebg-preview-1-removebg-preview.png" alt="" class="img-fluid" id="load1">
-    <img src="https://i.postimg.cc/jj1c6hh6/logo-fan.png" alt="" class="img-fluid" id="load2">
-  </div>
+      <div id="load">
+        <img
+          src="https://i.postimg.cc/fWGTjSPh/graphics-card-removebg-preview-1-removebg-preview.png"
+          alt=""
+          class="img-fluid"
+          id="load1"
+        />
+        <img
+          src="https://i.postimg.cc/jj1c6hh6/logo-fan.png"
+          alt=""
+          class="img-fluid"
+          id="load2"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -111,15 +122,18 @@ svg path,
 svg rect {
   fill: var(--eletric-blue);
 } */
-#load{
+.card {
+  background-color: rgb(252, 252, 252);
+  border-radius: 30px;
+}
+#load {
   position: relative;
 }
-#load1{
+#load1 {
   width: 100px;
   height: 100px;
-
 }
-#load2{
+#load2 {
   position: absolute;
   width: 40px;
   height: 40px;
@@ -135,9 +149,16 @@ svg rect {
     transform: rotate(359deg);
   }
 }
-#viewGpuBtn{
+#viewGpuBtn {
   position: absolute;
-  left: 36%;
+  left: 40%;
   bottom: 10px;
+}
+img{
+  height: 200px;
+  border-radius: 30px;
+}
+.card-body{
+  padding: 50px;
 }
 </style>

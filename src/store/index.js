@@ -259,10 +259,10 @@ export default createStore({
       context.dispatch("getCart", id);
         });
     },
-    deleteCart: async (context, list, id) => {
+    deleteCart: async (context, cart, id) => {
       id = context.state.user.user_id;
       await fetch(
-          "http://localhost:3001/users/" + id + "/cart/" + list.cart_id, {
+          "http://localhost:3001/users/" + id + "/cart/" + cart.cart_id, {
             method: "DELETE",
             headers: {
               "Content-type": "application/json; charset=UTF-8",
