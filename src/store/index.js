@@ -266,7 +266,6 @@ export default createStore({
             method: "DELETE",
             headers: {
               "Content-type": "application/json; charset=UTF-8",
-              "x-auth-token": context.state.token,
             },
           }
         )

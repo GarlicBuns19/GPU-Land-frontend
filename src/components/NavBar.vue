@@ -1,35 +1,45 @@
 <template>
-<!-- Navbar -->
+  <!-- Navbar -->
   <div>
-    <div id="logo">
-      <img src="https://i.postimg.cc/fWGTjSPh/graphics-card-removebg-preview-1-removebg-preview.png" alt="" class="img-fluid" id="logo1">
-    <img src="https://i.postimg.cc/jj1c6hh6/logo-fan.png" alt="" class="img-fluid" id="logo2">
-    </div>
     <button
-    class="btn btn-primary"
-    type="button"
-    data-bs-toggle="offcanvas"
-    data-bs-target="#offcanvasRight"
-    aria-controls="offcanvasRight"
-  >
-    Navigation
-  </button>
+      class="btn btn-primary"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasRight"
+      aria-controls="offcanvasRight"
+    >
+      Navigation
+    </button>
+    <!-- Logo -->
+    <div id="logo">
+      <img
+        src="https://i.postimg.cc/fWGTjSPh/graphics-card-removebg-preview-1-removebg-preview.png"
+        alt=""
+        class="img-fluid"
+        id="logo1"
+      />
+      <img
+        src="https://i.postimg.cc/jj1c6hh6/logo-fan.png"
+        alt=""
+        class="img-fluid"
+        id="logo2"
+      />
+    </div>
   </div>
   <!-- Cart -->
   <div v-if="admin">
-        <button
-          class="btn btn-primary"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#cart"
-          aria-controls="cart"
-          @click="this.$store.dispatch('getCart', user.user_id)"
-              >
-                <i class="bi bi-cart3">{{ num }}</i>
-        >
-          Cart
-        </button>
-        <Cart />
+    <button
+      class="btn btn-primary"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#cart"
+      aria-controls="cart"
+      @click="this.$store.dispatch('getCart', user.user_id)"
+    >
+      <i class="bi bi-cart3">{{ num }}</i>
+      > Cart
+    </button>
+    <Cart />
   </div>
   <!-- Off Canvas Nav -->
   <div
@@ -61,11 +71,8 @@
         <li v-if="admin">
           <router-link to="/userProfile">User Profile</router-link> |
         </li>
-        <li v-if="admin">
-          <button @click="logout">Logout</button> |
-        </li>
+        <li v-if="admin"><button @click="logout">Logout</button> |</li>
       </ul>
-      
       <div v-if="userUser">
         <router-link to="/userProfile">User Profile</router-link> |
         <button @click="logout">Logout</button> |
@@ -107,8 +114,9 @@ export default {
       } else {
         // Cnum.length
         let i = Cnum.length;
-        return (i);
-      }}
+        return i;
+      }
+    },
   },
   methods: {
     logout() {
@@ -122,22 +130,21 @@ export default {
 };
 </script>
 <style scoped>
-nav{
-    background-color: rgba(0, 0, 0, 0.44) !important;
+nav {
+  background-color: rgba(0, 0, 0, 0.44) !important;
 }
-#logo{
+#logo {
   position: relative;
 }
-#logo1{
+#logo1 {
   width: 100px;
   height: 100px;
-
 }
-#logo2{
+#logo2 {
   position: absolute;
   width: 40px;
   height: 40px;
-  top: 27px;
+  top: 27.5px;
   left: 50.2%;
   animation: rotation 3s infinite linear;
 }

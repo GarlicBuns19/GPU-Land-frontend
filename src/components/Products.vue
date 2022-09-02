@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div v-if="graphics" class="row">
-      <div class="col-md-3" v-for="graphic in graphics" :key="graphic.gpu_id">
-        <div class="card" style="width: 18rem">
+      <div class="col-md-4" v-for="graphic in graphics" :key="graphic.gpu_id">
+        <div class="card" style="height: 450px;">
           <img :src="graphic.gpuFront_Img" class="card-img-top" alt="..." />
           <div class="card-body">
             <h3 class="card-title">
@@ -17,7 +17,7 @@
             <p class="card-text">
               {{ graphic.gpuClock }} mhz {{ graphic.memoryClock }} mhz
             </p>
-            <router-link
+            <router-link id="viewGpuBtn"
               :to="{ name: 'singleProduct', params: { id: graphic.gpu_id } }"
             >
               <button>View Gpu</button>
@@ -27,7 +27,7 @@
       </div>
     </div>
     <div v-else>
-      <div class="loader loader--style5" title="4">
+      <!-- <div class="loader loader--style5" title="4">
         <svg
           version="1.1"
           id="Layer_1"
@@ -75,7 +75,11 @@
             />
           </rect>
         </svg>
-      </div>
+      </div> -->
+    <div id="load">
+      <img src="https://i.postimg.cc/fWGTjSPh/graphics-card-removebg-preview-1-removebg-preview.png" alt="" class="img-fluid" id="load1">
+    <img src="https://i.postimg.cc/jj1c6hh6/logo-fan.png" alt="" class="img-fluid" id="load2">
+  </div>
     </div>
   </div>
 </template>
@@ -92,7 +96,7 @@ export default {
 };
 </script>
 <style scoped>
-.loader {
+/* .loader {
   margin: 0 0 2em;
   height: 100px;
   width: 20%;
@@ -102,9 +106,38 @@ export default {
   display: inline-block;
   vertical-align: top;
 }
-/* Set the color of the icon */
+Set the color of the icon
 svg path,
 svg rect {
   fill: var(--eletric-blue);
+} */
+#load{
+  position: relative;
+}
+#load1{
+  width: 100px;
+  height: 100px;
+
+}
+#load2{
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 27.5px;
+  left: 50.2%;
+  animation: rotation 3s infinite linear;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+#viewGpuBtn{
+  position: absolute;
+  left: 36%;
+  bottom: 10px;
 }
 </style>
