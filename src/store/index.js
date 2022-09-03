@@ -163,9 +163,19 @@ export default createStore({
         .then((data) => {
           let user = data.results
           console.log(user)
-          context.commit("stateUser", user);
-          if (user.userRole === "admin") {
-            context.state.admin = true
+          console.log(data.msg)
+          if (data.msg === 'Email doesn\'t exist') {
+            swal({
+              icon: "error",
+              title: "Email does not exist",
+              text: "Type in the proper email",
+              buttons: "Try Again"
+            })
+          } else {
+            context.commit("stateUser", user);
+            if (user.userRole === "admin") {
+              context.state.admin = true
+            }
           }
         });
     },
@@ -256,7 +266,7 @@ export default createStore({
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-      context.dispatch("getCart", id);
+          context.dispatch("getCart", id);
         });
     },
     deleteCart: async (context, cart, id) => {
