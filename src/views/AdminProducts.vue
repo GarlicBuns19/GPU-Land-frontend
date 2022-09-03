@@ -1,4 +1,7 @@
 <template>
+  <button id="addGpuBtn" class="btn" data-bs-toggle="modal"  data-bs-target="#addGpu">
+     Add Gpu
+  </button>
   <table>
     <thead>
       <tr>
@@ -16,11 +19,6 @@
         <th>Memory Clock</th>
         <th>Edit</th>
         <th>Delete</th>
-        <th>
-          <button id="addGpuBtn" class="btn" data-bs-toggle="modal"  data-bs-target="#addGpu">
-             Add Gpu
-          </button>
-             </th>
       </tr>
     </thead>
     <tbody v-if="graphicCards">
@@ -90,21 +88,21 @@ td {
   border: 2px solid;
 }
 table {
-  background: pink;
+  background-image: linear-gradient(144deg, #df40ff, #5b42f3 50%, #00ddeb);
   margin: auto;
 }
 th {
-  background: green;
-}
-tr:nth-child(even) {
-  background: blue;
-}
-tr:nth-child(odd) {
-  background: brown;
+  background: var(--background-main);
 }
 img{
   width: 400px;
-  height: 210px;
+  height: 200px;
+  scale: 0.9;
   object-fit: cover;
+  border-radius: 30px;
+}
+#addGpuBtn{
+  background-image: linear-gradient(144deg, #df40ff, #5b42f3 50%, #00ddeb);
+  color: white;
 }
 </style>

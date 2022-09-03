@@ -22,15 +22,16 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background: #1f1f1f;
+  background: var(--background-main);
 }
 *{
   margin: 0;
   padding: 0;
 }
 :root {
-  --eletric-blue : #59cbe8
-}   
+  --eletric-blue : #59cbe8;
+  --background-main : #1f1f1f;
+}
 /* nav {
   padding: 30px;
 }

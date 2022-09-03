@@ -16,7 +16,7 @@
         <td>
           <h1>{{user.userLName}}</h1>
         </td>
-          <button 
+          <button
            type="button"
             class="btn btn-primary"
             data-bs-toggle="modal"
@@ -29,7 +29,7 @@
     <div v-else>No users</div>
   </table>
 </div>
-  
+
 </template>
 <script>
 import editUserModal from '../components/editUserModal.vue'
@@ -60,12 +60,6 @@ table {
 }
 th {
   background: green;
-}
-tr:nth-child(even) {
-  background: blue;
-}
-tr:nth-child(odd) {
-  background: brown;
 }
 img{
   width: 200px;
