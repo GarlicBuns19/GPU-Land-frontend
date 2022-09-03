@@ -167,15 +167,30 @@ export default createStore({
           if (data.msg === 'Email doesn\'t exist') {
             swal({
               icon: "error",
-              title: "Email does not exist",
+              title: "Email doesn\'t exist",
               text: "Type in the proper email",
               buttons: "Try Again"
             })
-          } else {
-            context.commit("stateUser", user);
+          }
+          if (data.msg === 'The password does not match') {
+            swal({
+              icon: "error",
+              title: "The password does not match",
+              text: "Type in the proper password",
+              buttons: "Try Again"
+            })
+          }
+          if (data.msg === 'login successful') {
+            swal({
+              icon: "success",
+              title: "Loged In Boss",
+              text: "U the Boss",
+              buttons: "Enjoy"
+            })
             if (user.userRole === "admin") {
               context.state.admin = true
             }
+            context.commit("stateUser", user);
           }
         });
     },

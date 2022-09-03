@@ -71,20 +71,11 @@
         <li v-if="admin">
           <router-link to="/userProfile">User Profile</router-link> |
         </li>
-        <li v-if="admin"><button @click="logout">Logout</button> |</li>
+        <li v-if="this.$store.state.admin == false"><button @click="logout">Logout</button> |</li>
       </ul>
       <div v-if="userUser">
         <router-link to="/userProfile">User Profile</router-link> |
         <button @click="logout">Logout</button> |
-        <button
-          class="btn btn-primary"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#TTHING"
-          aria-controls="offcanvasRight"
-        >
-          Toggle right offcanvas
-        </button>
       </div>
       <div v-if="userUser == false || admin == false">
         <router-link to="/register">Register</router-link> |
@@ -92,6 +83,7 @@
       </div>
     </div>
   </div>
+  
 </template>
 <script>
 import Cart from "./Cart.vue";
