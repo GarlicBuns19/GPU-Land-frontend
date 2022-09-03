@@ -72,6 +72,7 @@
           <router-link to="/userProfile">User Profile</router-link> |
         </li>
         <li v-if="this.$store.state.admin == false"><button @click="logout">Logout</button> |</li>
+        <li v-if="this.$store.state.admin"><button @click="logout">Logout</button> |</li>
       </ul>
       <div v-if="userUser">
         <router-link to="/userProfile">User Profile</router-link> |

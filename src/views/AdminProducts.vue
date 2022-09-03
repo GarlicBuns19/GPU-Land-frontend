@@ -23,22 +23,22 @@
     </thead>
     <tbody v-if="graphicCards">
       <tr v-for="graphic in graphicCards" :key="graphic.gpu_id" scope="row">
-        <td>{{ graphic.gpu_id }}</td>
+        <td><span>{{ graphic.gpu_id }}</span></td>
         <td>
           <div v-if="graphic.gpuFront_Img">
             <img :src="graphic.gpuFront_Img" alt="" class="img-fluid">
           </div>
         </td>
-        <td>{{ graphic.gpuNoA }}</td>
-        <td>{{ graphic.gpuNrAr }}</td>
-        <td>{{ graphic.gpuGen }}</td>
-        <td>{{ graphic.gpuChip }}</td>
-        <td>{{ graphic.released }}</td>
-        <td>{{ graphic.memoryGb }} GB</td>
-        <td>{{ graphic.memoryType }}</td>
-        <td>{{ graphic.memoryBit }} bit</td>
-        <td>{{ graphic.gpuClock }} mhz</td>
-        <td>{{ graphic.memoryClock }} mhz</td>
+        <td><span>{{ graphic.gpuNoA }}</span></td>
+        <td><span>{{ graphic.gpuNrAr }}</span></td>
+        <td><span>{{ graphic.gpuGen }}</span></td>
+        <td><span>{{ graphic.gpuChip }}</span></td>
+        <td><span>{{ graphic.released }}</span></td>
+        <td><span>{{ graphic.memoryGb }} GB</span></td>
+        <td><span>{{ graphic.memoryType }}</span></td>
+        <td><span>{{ graphic.memoryBit }} bit</span></td>
+        <td><span>{{ graphic.gpuClock }} mhz</span></td>
+        <td><span>{{ graphic.memoryClock }} mhz</span></td>
         <td>
           <!-- Button trigger modal -->
           <button
@@ -93,6 +93,9 @@ table {
 }
 th {
   background: var(--background-main);
+}
+td span{
+  color: white;
 }
 img{
   width: 400px;
