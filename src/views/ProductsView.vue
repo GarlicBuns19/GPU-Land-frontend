@@ -1,4 +1,5 @@
 <template>
+    <button @click="gb">GB</button>
     <button @click="year">Year</button>
   <div class="container">
     <div v-if="graphics" class="row">
@@ -116,7 +117,15 @@ export default {
     year() {
         let gpus = this.$store.state.graphics;
         gpus.sort((a,b) => {
-            if(a.released < b.released){
+            if(a.released - b.released){
+                return -1
+            }
+        })
+    },
+    gb() {
+        let gpus = this.$store.state.graphics;
+        gpus.sort((a,b) => {
+            if(a.memoryGb - b.memoryGb){
                 return -1
             }
         })
