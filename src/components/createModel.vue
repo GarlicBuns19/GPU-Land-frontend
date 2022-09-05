@@ -34,6 +34,67 @@
                 required
               />
             </div>
+            <div class="col-md-6 mx-auto mb-3">
+              <!-- Gpu Top Img -->
+              <label for="gpuTop" class="form-label"
+                >Gpu Top Img:</label
+              >
+              <input
+                class="form-control"
+                type="text"
+                v-model="gpuTop"
+                name="gpuTop"
+                id="gpuTop"
+                placeholder="Gpu Top Img"
+                required
+              />
+            </div>
+            <div class="col-md-6 mx-auto mb-3">
+              <!-- Gpu Back Img -->
+              <label for="gpuTop" class="form-label"
+                >Gpu Back Img:</label
+              >
+              <input
+                class="form-control"
+                type="text"
+                v-model="gpuBack"
+                name="gpuBack"
+                id="gpuBack"
+                placeholder="Gpu Back Img"
+                required
+              />
+            </div>
+            <div class="col-md-6 mx-auto mb-3">
+              <!-- Gpu Bottom Img -->
+              <label for="gpuBottom" class="form-label"
+                >Gpu Bottom Img:</label
+              >
+              <input
+                class="form-control"
+                type="text"
+                v-model="gpuBottom"
+                name="gpuBottom"
+                id="gpuBottom"
+                placeholder="Gpu Bottom Img"
+                required
+              />
+            </div>
+            <div class="col-md-6 mx-auto mb-3">
+              <!-- Gpu Io Img -->
+              <label for="gpuBottom" class="form-label"
+                >Gpu IO Img:</label
+              >
+              <input
+                class="form-control"
+                type="text"
+                v-model="gpuIo"
+                name="gpuIo"
+                id="gpuIo"
+                placeholder="Gpu IogpuIo Img"
+                required
+              />
+            </div>
+
             <!-- Gpu N or A -->
             <div class="col-md-6 mx-auto mb-3">
               <label for="gpuNoA" class="form-label">Gpu N or A:</label>
@@ -158,6 +219,18 @@
                 placeholder="Memory Clock"
               />
             </div>
+            <!-- Price -->
+            <div class="col-md-6 mx-auto mb-3">
+              <label for="price" class="form-label">Price</label>
+              <input
+                class="form-control"
+                type="number"
+                name="price"
+                id="price"
+                v-model="price"
+                placeholder="Price?"
+              />
+            </div>
           </div>
         </div>
         <div class="modal-footer">
@@ -185,7 +258,11 @@
 export default {
   data() {
     return {
-      gpuFront_Img: null,
+      gpuFront_Img: 'https://i.postimg.cc/CxHXhbJw/graphics-card-removebg-preview.png',
+      gpuTop: 'https://i.postimg.cc/CxHXhbJw/graphics-card-removebg-preview.png',
+      gpuBack: 'https://i.postimg.cc/CxHXhbJw/graphics-card-removebg-preview.png',
+      gpuBottom: 'https://i.postimg.cc/CxHXhbJw/graphics-card-removebg-preview.png',
+      gpuIo: 'https://i.postimg.cc/CxHXhbJw/graphics-card-removebg-preview.png',
       gpuNoA: null,
       gpuNrAr: null,
       gpuGen: null,
@@ -196,12 +273,17 @@ export default {
       memoryBit: null,
       gpuClock: null,
       memoryClock: null,
+      price: null
     };
   },
   methods: {
     addGpu() {
       return this.$store.dispatch("addGraphic", {
         gpuFront_Img: this.gpuFront_Img,
+        gpuTop: this.gpuTop,
+        gpuBack: this.gpuBack, 
+        gpuBottom: this.gpuBottom, 
+        gpuIo: this.gpuIo, 
         gpuNoA: this.gpuNoA,
         gpuNrAr: this.gpuNrAr,
         gpuGen: this.gpuGen,
@@ -212,6 +294,7 @@ export default {
         memoryBit: this.memoryBit,
         gpuClock: this.gpuClock,
         memoryClock: this.memoryClock,
+        price : this.price
       });
     },
   },
