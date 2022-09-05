@@ -17,10 +17,17 @@
     <div class="offcanvas-body">
       <div v-if="gpuCart">
         <div class="card" v-for="gpu in gpuCart" :key="gpu.gpu_id">
-          <h1>
+          <div class="row">
+            <div class="col">
+              <img :src="gpu.gpuFront_Img" alt="" class="img-fluid">
+            </div>
+            <div class="col">
+              <h1>
             {{ gpu.gpuNoA }} {{ gpu.gpuNrAr }} {{ gpu.gpuGen }}
             {{ gpu.gpuChip }}
           </h1>
+            </div>
+          </div>
           <button @click="this.$store.dispatch('deleteCart',gpu)">Delete Item</button>
         </div>
         <button @click="this.$store.dispatch('clearCart')">Clear Cart</button>

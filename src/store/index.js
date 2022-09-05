@@ -1,7 +1,7 @@
 import {
   createStore
 } from "vuex";
-
+import router from '@/router'
 export default createStore({
   state: {
     graphics: null,
@@ -12,7 +12,8 @@ export default createStore({
     users: null,
     singleUser: null,
     userUser: false,
-    cart: null
+    cart: null,
+    asc : false
   },
   getters: {},
   mutations: {
@@ -148,7 +149,11 @@ export default createStore({
           }
         })
         .then(res => res.json())
-        .then(userData => context.state.msg = userData.msg)
+        .then(userData => {
+          context.state.msg = userData.msg
+          router.push('/login')
+          // this.$router.push('/login')
+        } )
     },
     login: async (context, data) => {
       console.log("Hi")

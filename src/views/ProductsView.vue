@@ -1,4 +1,5 @@
 <template>
+    <button @click="year">Year</button>
   <div class="container">
     <div v-if="graphics" class="row">
       <div
@@ -111,6 +112,16 @@ export default {
       return this.$store.state.graphics;
     },
   },
+  methods : {
+    year() {
+        let gpus = this.$store.state.graphics;
+        gpus.sort((a,b) => {
+            if(a.released < b.released){
+                return -1
+            }
+        })
+    }
+  }
 };
 </script>
   <style scoped>
@@ -142,10 +153,10 @@ export default {
 }
 #load2 {
   position: absolute;
-  width: 40px;
-  height: 40px;
-  top: 27.5px;
-  left: 50.2%;
+  width: 45px;
+  height: 45px;
+  top: 25.9px;
+  left: 49.9%;
   animation: rotation 3s infinite linear;
 }
 @keyframes rotation {
@@ -209,10 +220,8 @@ button:active {
 }
 img {
   padding: 5px;
-  /* height: 210px; */
+  height: 210px;
   border-radius: 30px;
-  /* scale: 0.5; */
-  /* object-fit: cover; */
 }
 .card-body {
   /* padding: 50px; */
