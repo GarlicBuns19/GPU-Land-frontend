@@ -199,9 +199,11 @@ export default createStore({
           if (data.msg === "login successful") {
             swal({
               icon: "success",
-              title: "Loged In Boss",
-              text: "U the Boss",
+              title: "U are in our land",
+              text: "Go explore",
               buttons: "Enjoy",
+              router : `${router.push('/products')}`
+              
             });
             if (user.userRole === "admin") {
               context.state.admin = true;
