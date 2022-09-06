@@ -1,46 +1,60 @@
 <template>
-  <div class="container" id="footer">
-    <div class="row">
-      <div class="col-md-4">
-        <h4>About GPU Land</h4>
-        <p>Cape Town WareHouse</p>
-        <p>
-          We pride ourselves on customer loyalty as a result of great pre & post
-          sale service. All products are covered with warranty. Customer service
-          is our goal.
-        </p>
-      </div>
-      <div class="col-md-4">
-        <h4>Social</h4>
-        <p>
-          Follow us and be the first to hear about exciting new Graphic Cards &
-          promotions.
-        </p>
-        <a href="https://github.com/GarlicBuns19" target="_blank">
-          <ion-icon name="logo-github" class="icon-size" id="icon"></ion-icon>
-        </a>
-        <a
-          href="https://www.linkedin.com/in/ra-ees-benny-a915a923a/"
-          target="_blank"
-        >
-          <ion-icon name="logo-linkedin" class="icon-size" id="icon"></ion-icon>
-        </a>
-        <a href="">
-          <ion-icon name="logo-twitter" class="icon-size" id="icon"></ion-icon>
-        </a>
-        <a href="">
-          <ion-icon name="logo-facebook" class="icon-size" id="icon"></ion-icon>
-        </a>
-      </div>
-      <div class="col-md-4">
-        <h4>Information</h4>
-        <div id="info">
-          <ul>
-            <li>About Us</li>
-            <li>Contact Us</li>
-            <li>Contact Us</li>
-            <li>Contact Us</li>
-          </ul>
+  <div id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h4>About GPU Land</h4>
+          <p>Cape Town WareHouse</p>
+          <p>
+            We pride ourselves on customer loyalty as a result of great pre &
+            post sale service. All products are covered with warranty. Customer
+            service is our goal.
+          </p>
+        </div>
+        <div class="col-md-4">
+          <h4>Social</h4>
+          <p>
+            Follow us and be the first to hear about exciting new Graphic Cards
+            & promotions.
+          </p>
+          <a href="https://github.com/GarlicBuns19" target="_blank">
+            <ion-icon name="logo-github" class="icon-size" id="icon"></ion-icon>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/ra-ees-benny-a915a923a/"
+            target="_blank"
+          >
+            <ion-icon
+              name="logo-linkedin"
+              class="icon-size"
+              id="icon"
+            ></ion-icon>
+          </a>
+          <a href="">
+            <ion-icon
+              name="logo-twitter"
+              class="icon-size"
+              id="icon"
+            ></ion-icon>
+          </a>
+          <a href="">
+            <ion-icon
+              name="logo-facebook"
+              class="icon-size"
+              id="icon"
+            ></ion-icon>
+          </a>
+        </div>
+        <div class="col-md-4">
+          <h4>Information</h4>
+          <div id="info">
+            <ul>
+              <li>About Us</li>
+              <li>Contact Us</li>
+              <li>Contact Us</li>
+              <li>Contact Us</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -51,6 +65,7 @@
 #footer {
   color: hsl(0, 0%, 70%);
   text-align: left;
+  margin: 20px 0 0 0;
 }
 h4 {
   font-weight: 600;

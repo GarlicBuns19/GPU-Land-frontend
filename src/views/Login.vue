@@ -62,11 +62,10 @@ export default {
 #bg{
   width: 100%;
   height: 61.6vh;
-  background-image: url(https://i.postimg.cc/vH7wJCcm/wallhaven-j3oq2p-1920x1080.png);
+  background-image: url(https://i.postimg.cc/Fzp5LLtL/bg.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  object-fit: cover;
 }
 .inputs{
   background: var(--background-main);

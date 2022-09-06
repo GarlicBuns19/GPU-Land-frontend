@@ -144,6 +144,10 @@ export default {
 #navBtn{
   background-image: linear-gradient(144deg, #df40ff, #5b42f3 50%, #00ddeb);
   color: #efefef;
+  transition: linear .6s;
+}
+#navBtn:hover{
+  transform: scale(1.07);
 }
 nav {
   background-color: rgba(0, 0, 0, 0.44) !important;
