@@ -26,9 +26,9 @@
                 class="img-fluid"
               />
             </div>
-            <div v-if="singleGraphic[0].gpuBottom" class="col">
+            <div v-if="singleGraphic[0].gpuIo" class="col">
               <img
-                :src="singleGraphic[0].gpuBottom"
+                :src="singleGraphic[0].gpuIo"
                 alt=""
                 class="img-fluid"
               />

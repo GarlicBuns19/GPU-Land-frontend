@@ -27,64 +27,56 @@
                 placeholder="Gpu Front Img"
               />
             </div>
+            <!-- Gpu Top Img -->
             <div class="col-md-6 mx-auto mb-3">
-              <!-- Gpu Top Img -->
-              <label for="gpuTop" class="form-label"
+              <label for="gpuFront_Img" class="form-label"
                 >Gpu Top Img:</label
               >
               <input
-                class="form-control"
                 type="text"
-                v-model="gpuTop"
-                name="gpuTop"
+                class="modal-title"
                 id="gpuTop"
+                v-model="graphic.gpuTop"
                 placeholder="Gpu Top Img"
-                required
               />
             </div>
+            <!-- Gpu Back Img -->
             <div class="col-md-6 mx-auto mb-3">
-              <!-- Gpu Back Img -->
-              <label for="gpuTop" class="form-label"
+              <label for="gpuBack" class="form-label"
                 >Gpu Back Img:</label
               >
               <input
-                class="form-control"
                 type="text"
-                v-model="gpuBack"
-                name="gpuBack"
+                class="modal-title"
                 id="gpuBack"
+                v-model="graphic.gpuBack"
                 placeholder="Gpu Back Img"
-                required
               />
             </div>
+            <!-- Gpu Bottom Img -->
             <div class="col-md-6 mx-auto mb-3">
-              <!-- Gpu Bottom Img -->
               <label for="gpuBottom" class="form-label"
                 >Gpu Bottom Img:</label
               >
               <input
-                class="form-control"
                 type="text"
-                v-model="gpuBottom"
-                name="gpuBottom"
+                class="modal-title"
                 id="gpuBottom"
+                v-model="graphic.gpuBottom"
                 placeholder="Gpu Bottom Img"
-                required
               />
             </div>
+            <!-- Gpu Io Img -->
             <div class="col-md-6 mx-auto mb-3">
-              <!-- Gpu Io Img -->
               <label for="gpuBottom" class="form-label"
                 >Gpu IO Img:</label
               >
               <input
-                class="form-control"
                 type="text"
-                v-model="gpuIo"
-                name="gpuIo"
+                class="modal-title"
                 id="gpuIo"
+                v-model="graphic.gpuIo"
                 placeholder="Gpu IogpuIo Img"
-                required
               />
             </div>
             <!-- Gpu N or A -->

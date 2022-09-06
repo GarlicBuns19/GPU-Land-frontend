@@ -135,6 +135,7 @@ export default createStore({
           context.dispatch("fetchGraphics");
         });
     },
+    // Delete GPU
     deleteGraphic: async (context, id) => {
       // fetch(`https://gpu-land.herokuapp.com/products/${id}`, {
       fetch(`http://localhost:3001/products/${id}`, {
@@ -147,6 +148,7 @@ export default createStore({
           context.dispatch("fetchGraphics");
         });
     },
+    // Register
     register: async (context, data) => {
       console.log("Sup");
       await fetch("http://localhost:3001/register", {
@@ -163,6 +165,7 @@ export default createStore({
           // this.$router.push('/login')
         });
     },
+    // Login
     login: async (context, data) => {
       console.log("Hi");
       fetch("http://localhost:3001/login", {
@@ -207,12 +210,14 @@ export default createStore({
           }
         });
     },
+    // All users
     fetchUsers: async (context) => {
       // await fetch('https://gpu-land.herokuapp.com/users')
       await fetch("http://localhost:3001/users")
         .then((res) => res.json())
         .then((allUsers) => context.commit("stateAllUsers", allUsers.results));
     },
+    // 1 User
     fetchSingleUser: async (context, id) => {
       await fetch(`http://localhost:3001/users/${id}`)
         .then((res) => res.json())
@@ -222,6 +227,7 @@ export default createStore({
           context.commit("stateSingleUser", user.results);
         });
     },
+    // Edit User
     editUser: async (context, user) => {
       // fetch("http://localhost:3000/products/" + product.id, {
       fetch("http://localhost:3001/users/" + user.user_id, {
@@ -238,6 +244,7 @@ export default createStore({
           context.dispatch("fetchUsers");
         });
     },
+    // Delete User
     deleteUser: async (context, userid) => {
       // fetch(`https://gpu-land.herokuapp.com/users/${userid}`, {
       fetch(`http://localhost:3001/users/${userid}`, {
@@ -266,6 +273,7 @@ export default createStore({
           }
         });
     },
+    // Add to Cart
     addCart: async (context, item, id) => {
       console.log(context.state.cart);
       id = context.state.user.user_id;
@@ -283,6 +291,7 @@ export default createStore({
           context.dispatch("getCart", id);
         });
     },
+    // Clear Cart
     clearCart: async (context, id) => {
       id = context.state.user.user_id;
       await fetch("http://localhost:3001/users/" + id + "/cart", {
@@ -297,6 +306,7 @@ export default createStore({
           context.dispatch("getCart", id);
         });
     },
+    // Item Deleted in Cart
     deleteCart: async (context, cart, id) => {
       id = context.state.user.user_id;
       await fetch(
