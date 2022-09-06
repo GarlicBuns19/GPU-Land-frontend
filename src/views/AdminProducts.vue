@@ -153,13 +153,12 @@ td span {
   color: white;
 }
 img {
-  /* width: 200px;
-  height: 200px; */
+  /* width: 200px; */
+  height: 200px;
   scale: 0.9;
   object-fit: cover;
   border-radius: 10px;
   /* aspect-ratio: auto; */
-  object-fit: cover;
 }
 #addGpuBtn {
   background-image: linear-gradient(144deg, #df40ff, #5b42f3 50%, #00ddeb);

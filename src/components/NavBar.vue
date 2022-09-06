@@ -37,7 +37,8 @@
       aria-controls="cart"
       @click="this.$store.dispatch('getCart', user.user_id)"
     >
-      <i class="bi bi-cart3">{{ num }}</i>
+      <!-- <i class="bi bi-cart3">{{ num }}</i> -->
+      <span>R {{total}}</span>
       > Cart
     </button>
     <Cart />
@@ -116,6 +117,15 @@ export default {
         return i;
       }
     },
+    total(){
+      let prices = this.$store.state.cart;
+      if(prices != null){
+        let sum = prices.reduce((x,cart) => {
+          return x + cart.price;
+        },0);
+        return parseInt(sum)
+      }
+    }
   },
   methods: {
     logout() {

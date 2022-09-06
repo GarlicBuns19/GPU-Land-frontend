@@ -5,32 +5,32 @@
         <div class="col-md-6">
           <img :src="singleGraphic[0].gpuFront_Img" alt="" class="img-fluid" />
           <div class="row">
-            <div class="col">
+            <div class="col" v-if="singleGraphic[0].gpuTop">
               <img
                 :src="singleGraphic[0].gpuTop"
                 alt=""
                 class="img-fluid"
               />
             </div>
-            <div class="col">
+            <div class="col" v-if="singleGraphic[0].gpuBack">
               <img
                 :src="singleGraphic[0].gpuBack"
                 alt=""
-                class="img-fluid"
+                class="img-fluid size"
               />
             </div>
-            <div class="col">
+            <div class="col" v-if="singleGraphic[0].gpuBottom">
               <img
                 :src="singleGraphic[0].gpuBottom"
                 alt=""
-                class="img-fluid"
+                class="img-fluid size"
               />
             </div>
             <div v-if="singleGraphic[0].gpuIo" class="col">
               <img
                 :src="singleGraphic[0].gpuIo"
                 alt=""
-                class="img-fluid"
+                class="img-fluid size"
               />
             </div>
           </div>
@@ -73,7 +73,17 @@ export default {
 </script>
   <style scoped>
 img {
-  border-radius: 30px;
+  border-radius: 10px;
   object-fit: cover;
+}
+.size{
+  width: 150px;
+  height: 150px;
+}
+.col {
+    flex: 1 0 0%;
+    padding: 2rem 0 0 1rem;
+    display: flex;
+    flex-wrap: nowrap;
 }
 </style>
