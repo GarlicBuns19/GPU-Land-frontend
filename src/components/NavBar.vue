@@ -54,7 +54,25 @@
     aria-labelledby="offcanvasRightLabel"
   >
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+      <h5 class="offcanvas-title" id="offcanvasRightLabel">
+        <ul id="navOff">
+            <li id="logoli">
+              <img
+                src="https://i.postimg.cc/fWGTjSPh/graphics-card-removebg-preview-1-removebg-preview.png"
+                alt=""
+                class="img-fluid"
+                id="logo1li"
+              />
+              <img
+                src="https://i.postimg.cc/jj1c6hh6/logo-fan.png"
+                alt=""
+                class="img-fluid"
+                id="logo2li"
+              />
+            </li>
+          <li><span>GPU Land</span></li>
+        </ul>
+      </h5>
       <button
         type="button"
         class="btn-close"
@@ -62,36 +80,43 @@
         aria-label="Close"
       ></button>
     </div>
+    <center>
+      <div style="border: 3px solid #efefef; height: 1px; width: 100%"></div>
+    </center>
     <div class="offcanvas-body">
       <ul>
-        <li><router-link to="/">Home</router-link> |</li>
-        <li><router-link to="/about">About</router-link> |</li>
-        <li><router-link to="/products">Products</router-link> |</li>
-        <li v-if="admin">
-          <router-link to="/admin/products">Admin Products</router-link> |
+        <li data-bs-dismiss="offcanvas"><router-link class="routerLink" to="/"><h3>Home</h3></router-link></li>
+        <li data-bs-dismiss="offcanvas"><router-link class="routerLink" to="/about"><h3>About</h3></router-link></li>
+        <li data-bs-dismiss="offcanvas"><router-link class="routerLink" to="/products"><h3>Products</h3></router-link></li>
+        <li v-if="admin" data-bs-dismiss="offcanvas">
+          <router-link class="routerLink" to="/admin/products"><h3>Admin Products</h3></router-link>
         </li>
-        <li v-if="admin">
-          <router-link to="/admin/users">Admin Users</router-link> |
+        <li v-if="admin" data-bs-dismiss="offcanvas">
+          <router-link class="routerLink" to="/admin/users"><h3>Admin Users</h3></router-link>
         </li>
-        <li v-if="admin">
-          <router-link to="/userProfile">User Profile</router-link> |
+        <li v-if="admin" data-bs-dismiss="offcanvas">
+          <router-link class="routerLink" to="/userProfile"><h3>User Profile</h3></router-link>
         </li>
-        <!-- <li v-if="this.$store.state.user.userRole == 'user'"><button @click="logout">Logout</button> |</li> -->
-        <!-- <li v-if="this.$store.state.admin"><button @click="logout">Logout</button> |</li> -->
+        <li v-if="userUser" data-bs-dismiss="offcanvas">
+          <router-link class="routerLink" to="/userProfile"><h3>User Profile</h3></router-link>
+        </li>
+        <!-- <li v-if="this.$store.state.user.userRole == 'user'"><button @click="logout">Logout</button> </li> -->
+        <!-- <li v-if="this.$store.state.admin"><button @click="logout">Logout</button> </li> -->
         <li v-if="this.$store.state.user != null">
-          <!-- <span v-if="this.$store.state.user.userRole == user"> -->
-          <button @click="logout">Logout</button>
-          <!-- </span> -->
+          <button @click="logout" id="logout">Logout</button>
+        </li>
+        <li v-if="this.$store.state.user == null">
+          <button class="ResLog" data-bs-dismiss="offcanvas">
+            <router-link class="routerLink" to="/register"><h3>Register</h3></router-link>
+          </button>
+        </li>
+        <li v-if="this.$store.state.user == null">
+          <button class="ResLog" data-bs-dismiss="offcanvas">
+            <router-link class="routerLink" to="/login"><h3>Login</h3></router-link>
+          </button>
         </li>
       </ul>
-      <div v-if="userUser">
-        <router-link to="/userProfile">User Profile</router-link> |
-        <!-- <button @click="logout">Logout</button> | -->
-      </div>
-      <div v-if="this.$store.state.user == null">
-        <router-link to="/register">Register</router-link> |
-        <router-link to="/login">Login</router-link> |
-      </div>
+      <ul></ul>
     </div>
   </div>
 </template>
@@ -141,16 +166,59 @@ export default {
 };
 </script>
 <style scoped>
-#navBtn{
+.routerLink:hover{
+  animation: rgb 2s infinite;
+}
+@keyframes rgb {
+  /* 0%  { color: #efefef; } */
+  13.3%    { color: #df40ff }
+  33.6%   { color: #5b42f3 }
+  54%   { color: #00ddeb; }
+}
+#offcanvasRight{
+  background: rgba(0 0 0 / 91%);
+  color: #efefef;
+}
+.offcanvas-header{
+  background: var(--background-main);
+  height: 158.3px;
+}
+.offcanvas-body{
+  background: var(--background-main);
+}
+#navBtn {
   background-image: linear-gradient(144deg, #df40ff, #5b42f3 50%, #00ddeb);
   color: #efefef;
-  transition: linear .6s;
+  transition: linear 0.6s;
 }
-#navBtn:hover{
+#navBtn:hover {
   transform: scale(1.07);
 }
 nav {
   background-color: rgba(0, 0, 0, 0.44) !important;
+}
+ul{
+  list-style: none;
+}
+.routerLink{
+  text-decoration: none;
+  color: #efefef;
+}
+.ResLog {
+  background-image: linear-gradient(144deg, #df40ff, #5b42f3 50%, #00ddeb);
+  margin: 10px 0 0 0;
+  padding: 1px 3px;
+  border-radius: 10px;
+}
+#logout{
+  margin: 10px 0 0 0;
+  background-image: linear-gradient(144deg, #df40ff, #5b42f3 50%, #00ddeb);
+  color: #efefef;
+  padding: 5px;
+  border-radius: 10px;
+}
+#navOff li{
+  display: inline;
 }
 #logo {
   position: relative;
@@ -165,6 +233,21 @@ nav {
   height: 40px;
   top: 27.5px;
   left: 50.2%;
+  animation: rotation 3s infinite linear;
+}
+#logoli {
+  position: relative;
+}
+#logo1li {
+  width: 100px;
+  height: 100px;
+}
+#logo2li {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: -9px;
+  left: 54.2%;
   animation: rotation 3s infinite linear;
 }
 @keyframes rotation {

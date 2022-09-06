@@ -1,5 +1,10 @@
 <template>
+<div id="nav">
     <NavBar/>
+</div>
+<center>
+      <div style="border: 3px solid #efefef; height: 1px; width: 100%"></div>
+    </center>
   <router-view/>
     <Footer/>
 </template>
@@ -32,6 +37,10 @@ export default {
 :root {
   --eletric-blue : #59cbe8;
   --background-main : #1f1f1f;
+}
+#nav{
+  background: var(--background-main);
+  margin: 10px 0 10px 0;
 }
 /* nav {
   padding: 30px;
