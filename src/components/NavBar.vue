@@ -143,7 +143,7 @@ export default {
 <style scoped>
 #navBtn{
   background-image: linear-gradient(144deg, #df40ff, #5b42f3 50%, #00ddeb);
-  color: white;
+  color: #efefef;
 }
 nav {
   background-color: rgba(0, 0, 0, 0.44) !important;

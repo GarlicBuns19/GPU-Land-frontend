@@ -23,6 +23,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   background: var(--background-main);
+  overflow-x: hidden;
 }
 *{
   margin: 0;
