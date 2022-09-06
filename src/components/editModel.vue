@@ -87,7 +87,7 @@
                 class="modal-title"
                 id="gpuNoA"
                 v-model="graphic.gpuNoA"
-                placeholder="Geforce or Radean"
+                placeholder="Geforce or Radeon"
               />
             </div>
             <!-- Gpu NrAr -->

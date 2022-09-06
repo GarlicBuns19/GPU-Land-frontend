@@ -7,9 +7,12 @@
       data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasRight"
       aria-controls="offcanvasRight"
+      id="navBtn"
     >
       Navigation
-      <span v-if="this.$store.state.user !=null">for {{this.$store.state.user.userFName}}</span>
+      <span v-if="this.$store.state.user != null"
+        >for {{ this.$store.state.user.userFName }}</span
+      >
     </button>
     <!-- Logo -->
     <div id="logo">
@@ -37,8 +40,8 @@
       aria-controls="cart"
       @click="this.$store.dispatch('getCart', user.user_id)"
     >
-      <!-- <i class="bi bi-cart3">{{ num }}</i> -->
-      <span>R {{total}}</span>
+      <i class="bi bi-cart3">{{ num }}</i>
+      <span> R {{ total }}</span>
       > Cart
     </button>
     <Cart />
@@ -77,7 +80,7 @@
         <!-- <li v-if="this.$store.state.admin"><button @click="logout">Logout</button> |</li> -->
         <li v-if="this.$store.state.user != null">
           <!-- <span v-if="this.$store.state.user.userRole == user"> -->
-            <button @click="logout">Logout</button>
+          <button @click="logout">Logout</button>
           <!-- </span> -->
         </li>
       </ul>
@@ -91,7 +94,6 @@
       </div>
     </div>
   </div>
-  
 </template>
 <script>
 import Cart from "./Cart.vue";
@@ -117,15 +119,15 @@ export default {
         return i;
       }
     },
-    total(){
+    total() {
       let prices = this.$store.state.cart;
-      if(prices != null){
-        let sum = prices.reduce((x,cart) => {
+      if (prices != null) {
+        let sum = prices.reduce((x, cart) => {
           return x + cart.price;
-        },0);
-        return parseInt(sum)
+        }, 0);
+        return parseInt(sum);
       }
-    }
+    },
   },
   methods: {
     logout() {
@@ -139,6 +141,10 @@ export default {
 };
 </script>
 <style scoped>
+#navBtn{
+  background-image: linear-gradient(144deg, #df40ff, #5b42f3 50%, #00ddeb);
+  color: white;
+}
 nav {
   background-color: rgba(0, 0, 0, 0.44) !important;
 }
@@ -165,5 +171,4 @@ nav {
     transform: rotate(359deg);
   }
 }
-
 </style>
