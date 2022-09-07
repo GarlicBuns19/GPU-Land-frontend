@@ -58,16 +58,16 @@ export default createStore({
       router.push('/')
     },
     fetchGraphics: async (context) => {
-      // await fetch("https://gpu-land.herokuapp.com/products")
-      await fetch("http://localhost:3001/products")
+      await fetch("https://gpu-land.herokuapp.com/products")
+      // await fetch("http://localhost:3001/products")
         .then((graphics) => graphics.json())
         .then((graphicsJson) =>
           context.commit("stateGraphics", graphicsJson.results)
         );
     },
     fetchSingleGraphic: async (context, id) => {
-      // await fetch(`https://gpu-land.herokuapp.com/products/${id}`)
-      await fetch(`http://localhost:3001/products/${id}`)
+      await fetch(`https://gpu-land.herokuapp.com/products/${id}`)
+      // await fetch(`http://localhost:3001/products/${id}`)
         .then((singlegraphic) => singlegraphic.json())
         .then((singlegraphicJson) =>
           context.commit("stateSingleGraphic", singlegraphicJson.results)
@@ -93,8 +93,8 @@ export default createStore({
         memoryClock,
         price
       } = payload;
-      // fetch("https://gpu-land.herokuapp.com/products", {
-      fetch("http://localhost:3001/products", {
+      fetch("https://gpu-land.herokuapp.com/products", {
+      // fetch("http://localhost:3001/products", {
         method: "POST",
         body: JSON.stringify({
           gpuFront_Img: gpuFront_Img,
@@ -124,8 +124,8 @@ export default createStore({
     },
     // Edit GPU
     editGraphic(context, graphic) {
-      // fetch(`https://gpu-land.herokuapp.com/products/` + graphic.gpu_id, {
-      fetch(`http://localhost:3001/products/${graphic.gpu_id}`, {
+      fetch(`https://gpu-land.herokuapp.com/products/` + graphic.gpu_id, {
+      // fetch(`http://localhost:3001/products/${graphic.gpu_id}`, {
         method: "PUT",
         body: JSON.stringify(graphic),
         headers: {
@@ -140,8 +140,8 @@ export default createStore({
     },
     // Delete GPU
     deleteGraphic: async (context, id) => {
-      // fetch(`https://gpu-land.herokuapp.com/products/${id}`, {
-      fetch(`http://localhost:3001/products/${id}`, {
+      fetch(`https://gpu-land.herokuapp.com/products/${id}`, {
+      // fetch(`http://localhost:3001/products/${id}`, {
         method: "DELETE",
       })
         .then((graphics) => graphics.json())
@@ -154,7 +154,8 @@ export default createStore({
     // Register
     register: async (context, data) => {
       console.log("Sup");
-      await fetch("http://localhost:3001/register", {
+      // await fetch("http://localhost:3001/register", {
+      await fetch("https://gpu-land.herokuapp.com/register", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -171,7 +172,8 @@ export default createStore({
     // Login
     login: async (context, data) => {
       console.log("Hi");
-      fetch("http://localhost:3001/login", {
+      fetch("https://gpu-land.herokuapp.com/login", {
+      // fetch("http://localhost:3001/login", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -217,14 +219,15 @@ export default createStore({
     },
     // All users
     fetchUsers: async (context) => {
-      // await fetch('https://gpu-land.herokuapp.com/users')
-      await fetch("http://localhost:3001/users")
+      await fetch('https://gpu-land.herokuapp.com/users')
+      // await fetch("http://localhost:3001/users")
         .then((res) => res.json())
         .then((allUsers) => context.commit("stateAllUsers", allUsers.results));
     },
     // 1 User
     fetchSingleUser: async (context, id) => {
-      await fetch(`http://localhost:3001/users/${id}`)
+      await fetch(`https://gpu-land.herokuapp.com/users/${id}`)
+      // await fetch(`http://localhost:3001/users/${id}`)
         .then((res) => res.json())
         .then((user) => {
           console.log(user.results);
@@ -235,7 +238,7 @@ export default createStore({
     // Edit User
     editUser: async (context, user) => {
       // fetch("http://localhost:3000/products/" + product.id, {
-      fetch("http://localhost:3001/users/" + user.user_id, {
+      fetch("https://gpu-land.herokuapp.com/users/" + user.user_id, {
         method: "PUT",
         body: JSON.stringify(user),
         headers: {
@@ -251,8 +254,8 @@ export default createStore({
     },
     // Delete User
     deleteUser: async (context, userid) => {
-      // fetch(`https://gpu-land.herokuapp.com/users/${userid}`, {
-      fetch(`http://localhost:3001/users/${userid}`, {
+      fetch(`https://gpu-land.herokuapp.com/users/${userid}`, {
+      // fetch(`http://localhost:3001/users/${userid}`, {
         method: "DELETE",
       })
         .then((users) => users.json())
@@ -264,7 +267,8 @@ export default createStore({
     // Cart
     getCart: async (context, id) => {
       id = context.state.user.user_id;
-      await fetch(`http://localhost:3001/users/${id}/cart`, {
+      await fetch(`https://gpu-land.herokuapp.com/users/${id}/cart`, {
+      // await fetch(`http://localhost:3001/users/${id}/cart`, {
         method: "GET",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -283,7 +287,8 @@ export default createStore({
       console.log(context.state.cart);
       id = context.state.user.user_id;
       console.log(item);
-      await fetch("http://localhost:3001/users/" + id + "/cart", {
+      await fetch("https://gpu-land.herokuapp.com/users/" + id + "/cart", {
+      // await fetch("http://localhost:3001/users/" + id + "/cart", {
         method: "POST",
         body: JSON.stringify(item),
         headers: {
@@ -299,7 +304,8 @@ export default createStore({
     // Clear Cart
     clearCart: async (context, id) => {
       id = context.state.user.user_id;
-      await fetch("http://localhost:3001/users/" + id + "/cart", {
+      await fetch("https://gpu-land.herokuapp.com/users/" + id + "/cart", {
+      // await fetch("http://localhost:3001/users/" + id + "/cart", {
         method: "DELETE",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -315,7 +321,8 @@ export default createStore({
     deleteCart: async (context, cart, id) => {
       id = context.state.user.user_id;
       await fetch(
-        "http://localhost:3001/users/" + id + "/cart/" + cart.cart_id,
+        "https://gpu-land.herokuapp.com/users/" + id + "/cart/" + cart.cart_id,
+        // "http://localhost:3001/users/" + id + "/cart/" + cart.cart_id,
         {
           method: "DELETE",
           headers: {

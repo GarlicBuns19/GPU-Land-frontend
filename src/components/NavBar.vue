@@ -31,7 +31,7 @@
     </div>
   </div>
   <!-- Cart -->
-  <div v-if="admin">
+  <div v-if="this.$store.state.user != null">
     <button
       class="btn btn-primary"
       type="button"
@@ -148,7 +148,7 @@ export default {
       let prices = this.$store.state.cart;
       if (prices != null) {
         let sum = prices.reduce((x, cart) => {
-          return x + cart.price;
+          return x + parseInt(cart.price);
         }, 0);
         return parseInt(sum);
       }
