@@ -50,9 +50,12 @@ export default createStore({
       }
     },
     logout: (context) => {
+      context.state.user = null
+      context.state.cart = null
       localStorage.removeItem("user");
-      window.location.reload();
+      // window.location.reload();
       console.log(context.state.user);
+      router.push('/')
     },
     fetchGraphics: async (context) => {
       // await fetch("https://gpu-land.herokuapp.com/products")
