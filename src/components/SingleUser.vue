@@ -2,6 +2,7 @@
     <div v-if="user">
         <h1>{{user[0].user_id}}</h1>
         <h1>{{user[0].userFName}}</h1>
+        <img :src="user[0].userImg" alt="">
     </div>
 </template>
 <script>

@@ -6,6 +6,7 @@
     <tr>
       <th>Name</th>
       <th>Last</th>
+      <th>Img</th>
     </tr>
     </thead>
     <tbody v-if="allUsers">
@@ -15,6 +16,9 @@
         </td>
         <td>
           <h1>{{user.userLName}}</h1>
+        </td>
+        <td>
+          <img :src="user.userImg" alt="">
         </td>
           <button
            type="button"

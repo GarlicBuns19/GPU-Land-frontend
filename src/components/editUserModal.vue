@@ -42,10 +42,22 @@
                 <input
                   class="form-control"
                   type="text"
-                  name="edit email"
-                  id="edit email"
+                  name="email"
+                  id="email"
                   v-model="user.email"
                   placeholder="Email"
+                />
+              </div>
+              <!-- Imgae -->
+              <div class="mb-3">
+                <label for="addPrice" class="form-label">Image</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="image"
+                  id="image"
+                  v-model="user.userImg"
+                  placeholder="Your Profile pic"
                 />
               </div>
             </div>
