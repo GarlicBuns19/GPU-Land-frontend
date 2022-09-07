@@ -1,7 +1,8 @@
 <template>
   <!-- Navbar -->
   <div>
-    <button
+    <div id="navCart">
+      <button
       class="btn btn-primary"
       type="button"
       data-bs-toggle="offcanvas"
@@ -10,10 +11,24 @@
       id="navBtn"
     >
       Navigation
-      <span v-if="this.$store.state.user != null"
+      <!-- <span v-if="this.$store.state.user != null"
         >for {{ this.$store.state.user.userFName }}</span
-      >
+      > -->
     </button>
+    <!-- Cart -->
+    <button v-if="this.$store.state.user != null"
+      class="btn btn-primary"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#cart"
+      aria-controls="cart"
+      id="cartBtn"
+      @click="this.$store.dispatch('getCart', user.user_id)"
+    >
+      <i class="bi bi-cart3">{{ num }}</i>
+    </button>
+    </div>
+    <Cart />
     <!-- Logo -->
     <div id="logo">
       <img
@@ -29,22 +44,6 @@
         id="logo2"
       />
     </div>
-  </div>
-  <!-- Cart -->
-  <div v-if="this.$store.state.user != null">
-    <button
-      class="btn btn-primary"
-      type="button"
-      data-bs-toggle="offcanvas"
-      data-bs-target="#cart"
-      aria-controls="cart"
-      @click="this.$store.dispatch('getCart', user.user_id)"
-    >
-      <i class="bi bi-cart3">{{ num }}</i>
-      <span> R {{ total }}</span>
-      > Cart
-    </button>
-    <Cart />
   </div>
   <!-- Off Canvas Nav -->
   <div
@@ -73,6 +72,9 @@
           <li><span>GPU Land</span></li>
         </ul>
       </h5>
+          <div v-if="this.$store.state.user != null">
+            <img :src="this.$store.state.user.userImg" alt="userImg" id="userImg">
+          </div>
       <button
         type="button"
         class="btn-close"
@@ -144,15 +146,6 @@ export default {
         return i;
       }
     },
-    total() {
-      let prices = this.$store.state.cart;
-      if (prices != null) {
-        let sum = prices.reduce((x, cart) => {
-          return x + parseInt(cart.price);
-        }, 0);
-        return parseInt(sum);
-      }
-    },
   },
   methods: {
     logout() {
@@ -166,6 +159,10 @@ export default {
 };
 </script>
 <style scoped>
+#navCart{
+  display: flex;
+  justify-content: space-around;
+}
 .routerLink:hover{
   animation: rgb 2s infinite;
 }
@@ -193,6 +190,29 @@ export default {
 }
 #navBtn:hover {
   transform: scale(1.07);
+}
+#userImg {
+  object-fit: cover;
+  aspect-ratio: 1;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 10px auto 0 auto;
+  padding: 10px;
+  border: 5px solid;
+  animation: rgb 2s infinite;
+}
+@keyframes rgb {
+  /* 0%  { color: #efefef; } */
+  13.3% {
+    border:5px solid #df40ff;
+  }
+  33.6% {
+    border:5px solid #5b42f3;
+  }
+  54% {
+    border:5px solid #00ddeb;
+  }
 }
 nav {
   background-color: rgba(0, 0, 0, 0.44) !important;
@@ -257,5 +277,16 @@ ul{
   to {
     transform: rotate(359deg);
   }
+}
+#cartBtn{
+  margin: 0 10px;
+  background-image: linear-gradient(144deg, #df40ff, #5b42f3 50%, #00ddeb);
+  color: #efefef;
+  /* padding: 5px; */
+  border-radius: 10px;
+  transition: linear .6s;
+}
+#cartBtn:hover{
+  transform: scale(1.1);
 }
 </style>

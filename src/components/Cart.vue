@@ -6,7 +6,7 @@
     aria-labelledby="offcanvasRightLabel"
   >
     <div class="offcanvas-header">
-      <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+      <h5 id="offcanvasRightLabel">Your Cart</h5>
       <button
         type="button"
         class="btn-close text-reset"
@@ -31,6 +31,7 @@
           <button @click="this.$store.dispatch('deleteCart',gpu)">Delete Item</button>
         </div>
         <button @click="this.$store.dispatch('clearCart')">Clear Cart</button>
+        <span> R {{ total }}</span>
       </div>
       <div v-else>Nothing</div>
     </div>
@@ -43,6 +44,15 @@ export default {
   computed: {
     gpuCart() {
       return this.$store.state.cart;
+    },
+    total() {
+      let prices = this.$store.state.cart;
+      if (prices != null) {
+        let sum = prices.reduce((x, cart) => {
+          return x + parseInt(cart.price);
+        }, 0);
+        return parseInt(sum);
+      }
     },
   },
 };

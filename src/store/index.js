@@ -51,7 +51,7 @@ export default createStore({
     },
     logout: (context) => {
       context.state.user = null
-      context.state.cart = null
+      // context.state.cart = null
       localStorage.removeItem("user");
       // window.location.reload();
       console.log(context.state.user);

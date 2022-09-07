@@ -86,8 +86,11 @@ export default {
 </script>
   <style scoped>
 .card {
-  background-color: rgb(252, 252, 252);
-  border-radius: 30px;
+  background-color: rgba(0, 0, 0, 0.144);;
+  color: #efefef;
+  border: 2px solid;
+  border-radius: 20px;
+  animation: rgb 7s infinite;
 }
 #load {
   position: relative;
@@ -142,11 +145,12 @@ button {
   touch-action: manipulation;
   white-space: nowrap;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.7s;
 }
 button:active,
 button:hover {
   outline: 0;
+  transform: scale(1.1);
 }
 button span {
   background-color: rgb(5, 6, 45);
@@ -156,20 +160,32 @@ button span {
   height: 100%;
   transition: 300ms;
 }
-button:hover span {
+/* button:hover span {
   background: none;
-}
+} */
 
 button:active {
   transform: scale(0.9);
 }
 img {
-  padding: 5px;
+  padding: 10px;
   height: 210px;
   border-radius: 30px;
 }
 .card-body {
   /* padding: 50px; */
   border-radius: 5px solid;
+}
+@keyframes rgb {
+  /* 0%  { color: #efefef; } */
+  13.3% {
+    border:2px solid #df40ff;
+  }
+  33.6% {
+    border:2px solid #5b42f3;
+  }
+  54% {
+    border:2px solid #00ddeb;
+  }
 }
 </style>
