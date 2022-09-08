@@ -9,21 +9,21 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img
-          src="https://www.gigabyte.com/FileUpload/Global/KeyFeature/2032/innergigabyteimages/slide-img-3.jpg"
+          src="https://i.postimg.cc/63ZSjQFc/c3.jpg"
           class="carouselImg"
           alt="..."
         />
       </div>
       <div class="carousel-item">
         <img
-          src="https://www.gigabyte.com/FileUpload/Global/KeyFeature/2032/innergigabyteimages/slide-img-3.jpg"
+          src="https://i.postimg.cc/d0LgC6Bz/c4.jpg"
           class="carouselImg"
           alt="..."
         />
       </div>
       <div class="carousel-item">
         <img
-          src="https://www.gigabyte.com/FileUpload/Global/KeyFeature/2032/innergigabyteimages/slide-img-3.jpg"
+          src="https://i.postimg.cc/VLmTgmg9/c2.png"
           class="carouselImg"
           alt="..."
         />
@@ -49,53 +49,59 @@
     </button>
   </div>
   <section id="products">
-    <h2>Check out our Graphic Cards</h2>
-  <h3>While Stock last</h3>
-  <div class="container">
-    <div v-if="graphics" class="row">
-      <div
-        class="col-md-6 col-lg-4"
-        v-for="graphic in graphics"
-        :key="graphic.gpu_id"
-      >
-        <div class="card my-3">
-          <div class="card-body">
-            <router-link
-              id="viewGpuBtn"
-              :to="{ name: 'singleProduct', params: { id: graphic.gpu_id } }"
-            >
-              <img :src="graphic.gpuFront_Img" alt="..." class="img-fluid" />
-            </router-link>
-            <h3 class="card-title">
-              {{ graphic.gpuNoA }} {{ graphic.gpuNrAr }} {{ graphic.gpuGen }}
-            </h3>
+    <div v-if="graphics">
+      <h2>Check out our Graphic Cards</h2>
+      <h3>While Stock last !</h3>
+    </div>
+    <div class="container">
+      <div v-if="graphics" class="row">
+        <div
+          class="col-md-6 col-lg-4"
+          v-for="graphic in graphics"
+          :key="graphic.gpu_id"
+        >
+          <div class="card my-3">
+            <div class="card-body">
+              <router-link
+                id="viewGpuBtn"
+                :to="{ name: 'singleProduct', params: { id: graphic.gpu_id } }"
+              >
+                <img :src="graphic.gpuFront_Img" alt="..." class="img-fluid" />
+              </router-link>
+              <h3 class="card-title">
+                {{ graphic.gpuNoA }} {{ graphic.gpuNrAr }} {{ graphic.gpuGen }}
+              </h3>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div v-else>
-      <div id="load">
-        <img
-          src="https://i.postimg.cc/fWGTjSPh/graphics-card-removebg-preview-1-removebg-preview.png"
-          alt=""
-          class="img-fluid"
-          id="load1"
-        />
-        <img
-          src="https://i.postimg.cc/jj1c6hh6/logo-fan.png"
-          alt=""
-          class="img-fluid"
-          id="load2"
-        />
+      <div v-else>
+        <div id="load">
+          <img
+            src="https://i.postimg.cc/fWGTjSPh/graphics-card-removebg-preview-1-removebg-preview.png"
+            alt=""
+            class="img-fluid"
+            id="load1"
+          />
+          <img
+            src="https://i.postimg.cc/jj1c6hh6/logo-fan.png"
+            alt=""
+            class="img-fluid"
+            id="load2"
+          />
+        </div>
+        <h1>Loading...</h1>
       </div>
-      <h1>Loading...</h1>
     </div>
-  </div>
   </section>
   <section id="about">
     <h2>What we do</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit minus veniam facere molestiae libero repudiandae officiis maxime quam fugiat eius consectetur id deleniti sit quibusdam enim, a veritatis omnis ipsam.</p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit minus
+      veniam facere molestiae libero repudiandae officiis maxime quam fugiat
+      eius consectetur id deleniti sit quibusdam enim, a veritatis omnis ipsam.
+    </p>
   </section>
 </template>
 <script>
@@ -130,8 +136,9 @@ h3 {
   margin: 10px 0;
 }
 .carouselImg {
-  width: 70%;
-  height: 300px;
+  width: 75%;
+  height: 500px;
+  aspect-ratio: 2;
 }
 img {
   padding: 5px;
@@ -179,13 +186,13 @@ img {
 @keyframes rgb {
   /* 0%  { color: #efefef; } */
   13.3% {
-    border:2px solid #df40ff;
+    border: 2px solid #df40ff;
   }
   33.6% {
-    border:2px solid #5b42f3;
+    border: 2px solid #5b42f3;
   }
   54% {
-    border:2px solid #00ddeb;
+    border: 2px solid #00ddeb;
   }
 }
 </style>

@@ -202,17 +202,17 @@ export default createStore({
             });
           }
           if (data.msg === "login successful") {
-            swal({
-              icon: "success",
-              title: "U are in our land",
-              text: "Go explore",
-              buttons: "Enjoy",
-              router : `${router.push('/products')}`
-            });
             if (user.userRole === "admin") {
               context.state.admin = true;
             }
             context.commit("stateUser", user);
+            swal({
+              icon: "success",
+              title: `You are in our land ${context.state.user.userFName}`,
+              text: "Go explore",
+              buttons: "Enjoy",
+              router : `${router.push('/products')}`
+            });
           }
         });
     },
