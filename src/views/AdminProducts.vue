@@ -10,25 +10,25 @@
   <table>
     <thead>
       <tr>
-        <th>GPU Id</th>
-        <th>GPU Front Img</th>
-        <th>GPU Top Img</th>
-        <th>GPU Back Img</th>
-        <th>GPU Bottom Img</th>
-        <th>GPU Io Img</th>
-        <th>GPU NoA</th>
-        <th>GPU NrAr</th>
-        <th>Series</th>
-        <th>GPU Chip</th>
-        <th>Year</th>
-        <th>VRAM</th>
-        <th>GDDR Type</th>
-        <th>Bit size</th>
-        <th>GPU Clock</th>
-        <th>Memory Clock</th>
-        <th>Price</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th><span></span></th>
+        <th><span></span>ont Img</th>
+        <th><span></span>p Img</th>
+        <th><span></span>ck Img</th>
+        <th><span></span>ttom Img</th>
+        <th><span></span> Img</th>
+        <th><span></span>A</th>
+        <th><span></span>Ar</th>
+        <th><span></span></th>
+        <th><span></span>ip</th>
+        <th><span></span>th>
+        <th><span></span>th>
+        <th><span></span>ype</th>
+        <th><span></span>ze</th>
+        <th><span></span>ock</th>
+        <th><span></span> Clock</th>
+        <th><span></span>/th>
+        <th><span></span>th>
+        <th><span></span></th>
       </tr>
     </thead>
     <tbody v-if="graphicCards">
