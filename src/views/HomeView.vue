@@ -171,8 +171,21 @@ img {
   color: #efefef;
   border: 2px solid;
   border-radius: 20px;
+  animation: rgb 7s infinite;
 }
 .card-title {
   margin: 10px 0;
+}
+@keyframes rgb {
+  /* 0%  { color: #efefef; } */
+  13.3% {
+    border:2px solid #df40ff;
+  }
+  33.6% {
+    border:2px solid #5b42f3;
+  }
+  54% {
+    border:2px solid #00ddeb;
+  }
 }
 </style>

@@ -9,7 +9,7 @@
         :key="graphic.gpu_id"
       >
         <div class="card my-3">
-          <img :src="graphic.gpuFront_Img" alt="..." class="img-fluid" />
+          <div div class="card-img"><img :src="graphic.gpuFront_Img" alt="..." class="img-fluid" /></div>
           <div class="card-body">
             <h3 class="card-title">
               {{ graphic.gpuNoA }} {{ graphic.gpuNrAr }} {{ graphic.gpuGen }}
@@ -85,6 +85,13 @@ export default {
 };
 </script>
   <style scoped>
+.card-img {
+  background-color: transparent;
+  height: 40%;
+  width: 100%;
+  border-radius: 0.5rem;
+  transition: 0.3s ease;
+}
 .card {
   background-color: rgba(0, 0, 0, 0.144);;
   color: #efefef;
