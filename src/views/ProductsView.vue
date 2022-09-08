@@ -51,6 +51,7 @@
           id="load2"
         />
       </div>
+      <h1>Loading...</h1>
     </div>
   </div>
 </template>
@@ -85,6 +86,9 @@ export default {
 };
 </script>
   <style scoped>
+  h1{
+    color: #efefef;
+  }
 .card-img {
   background-color: transparent;
   height: 40%;
@@ -108,10 +112,10 @@ export default {
 }
 #load2 {
   position: absolute;
-  width: 45px;
-  height: 45px;
-  top: 25.9px;
-  left: 49.9%;
+  width: 50px;
+  height: 50px;
+  top: 24px;
+  left: 49.5%;
   animation: rotation 3s infinite linear;
 }
 @keyframes rotation {
