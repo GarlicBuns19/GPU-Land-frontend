@@ -50,6 +50,11 @@ const routes = [
     name: 'userProfile',
     component: () => import('../views/SingleUserView.vue'),
   },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: () => import('../views/Contact.vue'),
+  },
 ]
 
 const router = createRouter({

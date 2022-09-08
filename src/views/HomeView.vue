@@ -100,8 +100,8 @@
     <div class="container" id="whatWeDo">
       <div class="row">
         <div class="col-6 col-md-3">
-          <i class="bi bi-basket"></i>
-          <h5>We supply our customers with the lastest graphic cards</h5>
+          <i class="bi bi-screwdriver"></i>
+          <h5>We do Graphic Card repairs</h5>
         </div>
         <div class="col-6 col-md-3">
           <ion-icon name="boat-outline"></ion-icon>
