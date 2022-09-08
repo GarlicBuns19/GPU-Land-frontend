@@ -66,6 +66,7 @@
   color: hsl(0, 0%, 70%);
   text-align: left;
   margin: 20px 0 0 0;
+  padding: 10px 0 0 0;
 }
 h4 {
   font-weight: 600;

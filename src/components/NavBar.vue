@@ -96,10 +96,10 @@
         <li v-if="admin" data-bs-dismiss="offcanvas">
           <router-link class="routerLink" to="/admin/users"><h3>Admin Users</h3></router-link>
         </li>
-        <li v-if="admin" data-bs-dismiss="offcanvas">
+        <!-- <li v-if="admin" data-bs-dismiss="offcanvas">
           <router-link class="routerLink" to="/userProfile"><h3>User Profile</h3></router-link>
-        </li>
-        <li v-if="userUser" data-bs-dismiss="offcanvas">
+        </li> -->
+        <li v-if="this.$store.state.user != null" data-bs-dismiss="offcanvas">
           <router-link class="routerLink" to="/userProfile"><h3>User Profile</h3></router-link>
         </li>
         <!-- <li v-if="this.$store.state.user.userRole == 'user'"><button @click="logout">Logout</button> </li> -->

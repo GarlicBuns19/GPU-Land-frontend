@@ -208,7 +208,6 @@ export default createStore({
               text: "Go explore",
               buttons: "Enjoy",
               router : `${router.push('/products')}`
-              
             });
             if (user.userRole === "admin") {
               context.state.admin = true;
@@ -262,6 +261,20 @@ export default createStore({
         .then((data) => {
           console.log(data.msg);
           context.dispatch("fetchUsers");
+        });
+    },
+    // Delete Sinngle User
+    deleteSUser: async (context, userid) => {
+      fetch(`https://gpu-land.herokuapp.com/users/${userid}`, {
+      // fetch(`http://localhost:3001/users/${userid}`, {
+        method: "DELETE",
+      })
+        .then((users) => users.json())
+        .then((data) => {
+          console.log(data.msg);
+          context.state.user = null
+          context.state.cart = null
+          router.push('/login');
         });
     },
     // Cart

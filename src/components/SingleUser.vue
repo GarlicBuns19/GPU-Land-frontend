@@ -2,23 +2,30 @@
   <div class="container">
     <div class="row" v-if="user">
       <div class="card" style="width: 18rem">
-        <img
-          :src="user[0].userImg"
-          alt="userImg"
-          class="img-fluid card-img-top"
-        />
+          <img
+            :src="user[0].userImg"
+            alt="userImg"
+            class="img-fluid card-img-top"
+          />
         <div class="card-body">
           <h2>{{ user[0].userFName }} {{ user[0].userLName }}</h2>
           <h1>{{ user[0].userRole }}</h1>
         </div>
         <button
-          id="editUserBtn"
+          id="btn"
           type="button"
           class="btn btn-primary"
           data-bs-toggle="modal"
           :data-bs-target="'#updateSUser' + user.user_id"
         >
           Edit Your Profile
+        </button>
+        <button
+          v-if="this.$store.state.user.userRole == 'user'"
+          id="btn"
+          @click="this.$store.dispatch('deleteSUser', user[0].user_id)"
+        >
+          Delete Account
         </button>
       </div>
       <edituser :user="user" />
@@ -74,16 +81,16 @@ img {
 @keyframes rgb {
   /* 0%  { color: #efefef; } */
   13.3% {
-    border:5px solid #df40ff;
+    border: 5px solid #df40ff;
   }
   33.6% {
-    border:5px solid #5b42f3;
+    border: 5px solid #5b42f3;
   }
   54% {
-    border:5px solid #00ddeb;
+    border: 5px solid #00ddeb;
   }
 }
-#editUserBtn {
+#btn {
   margin: 10px;
   background-image: linear-gradient(144deg, #df40ff, #5b42f3 50%, #00ddeb);
   color: #efefef;
@@ -91,7 +98,7 @@ img {
   border-radius: 10px;
   transition: linear 0.6s;
 }
-#editUserBtn:hover {
+#btn:hover {
   transform: scale(1.1);
 }
 </style>
