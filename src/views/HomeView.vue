@@ -97,11 +97,26 @@
   </section>
   <section id="about">
     <h2>What we do</h2>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit minus
-      veniam facere molestiae libero repudiandae officiis maxime quam fugiat
-      eius consectetur id deleniti sit quibusdam enim, a veritatis omnis ipsam.
-    </p>
+    <div class="container" id="whatWeDo">
+      <div class="row">
+        <div class="col-6 col-md-3">
+          <i class="bi bi-basket"></i>
+          <h5>We supply our customers with the lastest graphic cards</h5>
+        </div>
+        <div class="col-6 col-md-3">
+          <ion-icon name="boat-outline"></ion-icon>
+          <h5>Do shipping</h5>
+        </div>
+        <div class="col-6 col-md-3">
+          <i class="bi bi-truck"></i>
+          <h5>Deliver to you door Step</h5>
+        </div>
+        <div class="col-6 col-md-3">
+          <i class="bi bi-alarm-fill"></i>
+          <h5>2 Year guarantee</h5>
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 <script>
@@ -134,6 +149,9 @@ h2 {
 h3 {
   color: #efefef;
   margin: 10px 0;
+}
+h5{
+  padding: 6px 0 0;
 }
 .carouselImg {
   width: 75%;
@@ -193,6 +211,29 @@ img {
   }
   54% {
     border: 2px solid #00ddeb;
+  }
+}
+#whatWeDo{
+  padding: 30px 0 0;
+  color: #efefef;
+}
+#whatWeDo i{
+  font-size: 40px;
+  animation: service 7s infinite;
+}
+#whatWeDo ion-icon{
+  font-size: 50px;
+  animation: service 7s infinite;
+}
+@keyframes service {
+  13.3% {
+    color:#df40ff;
+  }
+  33.6% {
+    color:#5b42f3;
+  }
+  54% {
+    color:#00ddeb;
   }
 }
 </style>
