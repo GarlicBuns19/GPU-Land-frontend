@@ -32,13 +32,17 @@
               class="btn btn-primary"
               data-bs-toggle="modal"
               :data-bs-target="'#updateuser' + user.user_id"
+              id="editBtn"
             >
-              Edit
+              <i class="bi bi-pencil-square"></i>
             </button>
           </td>
           <td>
-            <button @click="this.$store.dispatch('deleteUser', user.user_id)">
-              Delete
+            <button 
+            class="btn btn-primary"
+            id="deleteBtn"
+            @click="this.$store.dispatch('deleteUser', user.user_id)">
+              <i class="bi bi-trash3-fill"></i>
             </button>
           </td>
 
@@ -90,6 +94,14 @@ img {
   object-fit: cover;
   border-radius: 10px;
   /* aspect-ratio: auto; */
+}
+#editBtn ,#deleteBtn {
+  background-image: linear-gradient(144deg, #df40ff, #5b42f3 50%, #00ddeb);
+  color: #efefef;
+  transition: linear 0.6s;
+}
+#editBtn:hover ,#deleteBtn:hover {
+  transform: scale(1.07);
 }
 </style>
 

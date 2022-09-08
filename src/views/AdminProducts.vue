@@ -10,25 +10,25 @@
   <table>
     <thead>
       <tr>
-        <th><span></span></th>
-        <th><span></span>ont Img</th>
-        <th><span></span>p Img</th>
-        <th><span></span>ck Img</th>
-        <th><span></span>ttom Img</th>
-        <th><span></span> Img</th>
-        <th><span></span>A</th>
-        <th><span></span>Ar</th>
-        <th><span></span></th>
-        <th><span></span>ip</th>
-        <th><span></span>th>
-        <th><span></span>th>
-        <th><span></span>ype</th>
-        <th><span></span>ze</th>
-        <th><span></span>ock</th>
-        <th><span></span> Clock</th>
-        <th><span></span>/th>
-        <th><span></span>th>
-        <th><span></span></th>
+        <th><span>GPU Id</span></th>
+        <th><span>GPU Front Img</span></th>
+        <th><span>GPU Top Img</span></th>
+        <th><span>GPU Back Img</span></th>
+        <th><span>GPU Bottom Img</span></th>
+        <th><span>GPU Io Img</span></th>
+        <th><span>GPU NoA</span></th>
+        <th><span>GPU NrAr</span></th>
+        <th><span>Series</span></th>
+        <th><span>GPU Chip</span></th>
+        <th><span>Year</span></th>
+        <th><span>VRAM</span></th>
+        <th><span>GDDR Type</span></th>
+        <th><span>Bit size</span></th>
+        <th><span>GPU Clock</span></th>
+        <th><span>Memory Clock</span></th>
+        <th><span>Price</span></th>
+        <th><span>Edit</span></th>
+        <th><span>Delete</span></th>
       </tr>
     </thead>
     <tbody v-if="graphicCards">
@@ -98,16 +98,20 @@
           <!-- Button trigger modal -->
           <button
             type="button"
+            id="editBtn"
             class="btn btn-primary"
             data-bs-toggle="modal"
             :data-bs-target="'#edit' + graphic.gpu_id"
           >
-            Edit Button
+            <i class="bi bi-pencil-square"></i>
           </button>
         </td>
         <td>
-          <button @click="$store.dispatch('deleteGraphic', graphic.gpu_id)">
-            Delete
+          <button 
+          id="deleteBtn"
+          class="btn btn-primary"
+          @click="$store.dispatch('deleteGraphic', graphic.gpu_id)">
+            <i class="bi bi-trash3-fill"></i>
           </button>
         </td>
         <createModel :graphic="graphic" />
@@ -149,7 +153,7 @@ table {
 th {
   background: var(--background-main);
 }
-td span {
+span {
   color: white;
 }
 img {
@@ -163,5 +167,13 @@ img {
 #addGpuBtn {
   background-image: linear-gradient(144deg, #df40ff, #5b42f3 50%, #00ddeb);
   color: white;
+}
+#editBtn ,#deleteBtn {
+  background-image: linear-gradient(144deg, #df40ff, #5b42f3 50%, #00ddeb);
+  color: #efefef;
+  transition: linear 0.6s;
+}
+#editBtn:hover ,#deleteBtn:hover {
+  transform: scale(1.07);
 }
 </style>
