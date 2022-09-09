@@ -54,10 +54,10 @@ export default {
 </script>
 <style scoped>
 .container {
-  height: 51vh;
+  height: 61vh;
 }
 .row {
-  margin: 50px 0 0 0;
+  margin: 18px 0 0 0;
   justify-content: center;
 }
 .card {

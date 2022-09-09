@@ -1,23 +1,37 @@
 <template>
-  <button @click="gb">GB</button>
-  <button @click="year">Year</button>
   <div class="container">
     <div v-if="graphics" class="row">
-      <input
-        class="form-control"
-        type="search"
-        name="search"
-        pattern=".*\S.*"
-        v-model="search"
-        required
-        placeholder="Search Bar"
-      />
-      <select class="form-control" name="" id="memoryType" v-model="memoryType">
-        <option value="All" disabled>All memoryTypes</option>
-        <option value="GDDR6">GDDR6</option>
-        <option value="GDDR6X">GDDR6X</option>
-        <option value="GDDR5">GDDR5</option>
-      </select>
+      <div class="col-md-6 d-flex justify-content-center">
+        <button @click="gb">GB</button>
+      </div>
+      <div class="col-md-6 d-flex justify-content-center">
+        <button @click="year">Year</button>
+      </div>
+      <div class="col-md-6">
+        <input
+          class="form-control"
+          type="search"
+          name="search"
+          pattern=".*\S.*"
+          v-model="search"
+          required
+          placeholder="Search Bar"
+        />
+      </div>
+      <div class="col-md-6">
+        <select
+          class="form-control"
+          name=""
+          id="memoryType"
+          v-model="memoryType"
+        >
+          <option value="All" disabled>All memoryTypes</option>
+          <option value="GDDR6">GDDR6</option>
+          <option value="GDDR6X">GDDR6X</option>
+          <option value="GDDR5">GDDR5</option>
+        </select>
+      </div>
+
       <div
         class="col-md-6 col-lg-4"
         v-for="graphic in graphics"
@@ -43,7 +57,7 @@
               id="viewGpuBtn"
               :to="{ name: 'singleProduct', params: { id: graphic.gpu_id } }"
             >
-              <button id="viewBtn">
+              <button id="viewBtn" class="">
                 <span>View Gpu</span>
               </button>
             </router-link>
@@ -114,7 +128,7 @@ export default {
     gb() {
       let gpus = this.$store.state.graphics;
       gpus.sort((a, b) => {
-        if (a.memoryGb - b.memoryGb) {
+        if (a.memoryGb < b.memoryGb) {
           return -1;
         }
       });
@@ -166,9 +180,8 @@ h1 {
 #viewGpuBtn {
   /* position: relative; */
   text-decoration: none;
-}
-#viewBtn {
-  margin: 0 0 0 120px;
+  justify-content: center;
+  display: flex;
 }
 /* View Btn */
 button {

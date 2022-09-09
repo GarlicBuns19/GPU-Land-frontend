@@ -173,9 +173,6 @@ export default {
       this.$store.dispatch("logout");
     },
   },
-  mounted() {
-    this.$store.dispatch("admincheck");
-  },
   components: { Cart },
 };
 </script>
