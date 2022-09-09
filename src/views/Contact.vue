@@ -1,12 +1,13 @@
 <template>
   <section id="contact">
     <h2>Contact Us</h2>
-    <form>
+    <form action="https://formspree.io/f/xyyvklnn" method="POST">
       <div class="container">
         <div class="row">
           <div class="col-md-6">
             <label for="name">Name</label>
             <input
+            name="name"
               type="name"
               class="form-control"
               id="name"
@@ -45,26 +46,24 @@
           </div>
         </div>
       </div>
-      <button id="submit"
-      class="btn btn-primary"
-      >Submit</button>
+      <button id="submit" class="btn btn-primary">Submit</button>
     </form>
   </section>
 </template>
 <style scoped>
-#contact{
-    background-image:url(https://i.postimg.cc/Fzp5LLtL/bg.png) ;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 54.7vh;
+#contact {
+  background-image: url(https://i.postimg.cc/Fzp5LLtL/bg.png);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 54.7vh;
 }
-h2{
-    padding: 10px 0 0 0;
-    color: #efefef;
+h2 {
+  padding: 10px 0 0 0;
+  color: #efefef;
 }
-label{
+label {
   font-size: 25px;
 }
 #contact label {
