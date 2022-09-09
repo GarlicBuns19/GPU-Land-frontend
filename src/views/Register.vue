@@ -41,6 +41,16 @@
       class="inputs my-2 p-1"
       required
     />
+    <br>
+    <input
+      type="text"
+      placeholder="Your profile picture"
+      name="userImg"
+      id="userImg"
+      v-model="userImg"
+      class="inputs my-2 p-1"
+      required
+    />
 
     <center>
       <div style="border: 1px solid #efefef; height: 1px; width: 20%"></div>
@@ -61,6 +71,7 @@ export default {
       userLName: "",
       email: "",
       userPassword: "",
+      userImg : "https://i.postimg.cc/gjpsQRvG/User.jpg",
       clicked: false,
     };
   },
@@ -76,6 +87,7 @@ export default {
         userLName: this.userFName,
         email: this.email,
         userPassword: this.userPassword,
+        userImg: this.userImg,
       };
       this.clicked = true;
       return this.$store.dispatch("register", user);

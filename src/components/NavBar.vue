@@ -116,11 +116,6 @@
             ><h3>User Profile</h3></router-link
           >
         </li>
-        <li v-if="this.$store.state.user != null" data-bs-dismiss="offcanvas">
-          <router-link class="routerLink" to="/userProfile"
-            ><h3>User Profile</h3></router-link
-          >
-        </li>
         <li data-bs-dismiss="offcanvas">
           <router-link class="routerLink" to="/contact"
             ><h3>Contact Us</h3></router-link

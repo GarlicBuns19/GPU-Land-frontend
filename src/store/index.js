@@ -164,6 +164,7 @@ export default createStore({
       })
         .then((res) => res.json())
         .then((userData) => {
+          console.log(userData.msg)
           context.state.msg = userData.msg;
           router.push("/login");
           // this.$router.push('/login')

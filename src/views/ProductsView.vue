@@ -3,11 +3,20 @@
     <button @click="year">Year</button>
   <div class="container">
     <div v-if="graphics" class="row">
+      <input class="form-control" type="search" name="search" pattern=".*\S.*" v-model="search" required
+                        placeholder="Search Bar" />
+                        <select class="form-control" name="" id="memoryType" v-model="memoryType">
+                        <option value="All" disabled>All memoryTypes</option>
+                        <option value="GDDR6">GDDR6</option>
+                        <option value="GDDR6X">GDDR6X</option>
+                        <option value="GDDR5">GDDR5</option>
+                    </select>
       <div
         class="col-md-6 col-lg-4"
         v-for="graphic in graphics"
         :key="graphic.gpu_id"
       >
+      
         <div class="card my-3">
           <div div class="card-img"><img :src="graphic.gpuFront_Img" alt="..." class="img-fluid" /></div>
           <div class="card-body">
@@ -63,6 +72,24 @@ export default {
     graphics() {
       return this.$store.state.graphics;
     },
+    graphicsS() {
+            return this.$store.state.graphics?.filter((graphics) => {
+                let isMatch = true;
+                if (!graphics.gpuNoA.toLowerCase().includes(this.search)) {
+                    isMatch = false;
+                }
+                if (this.memoryType !== "All" && this.memoryType !== graphics.memoryType) {
+                    isMatch = false;
+                }
+                return isMatch;
+            });
+        },
+  },
+  data(){
+    return{
+      search: "",
+      memoryType: ""
+    }
   },
   methods : {
     year() {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Users</h1>
+    <h1 id="title">Users</h1>
     <table>
       <thead>
         <tr>
@@ -37,8 +37,8 @@
               <i class="bi bi-pencil-square"></i>
             </button>
           </td>
-          <td>
-            <button 
+          <td v-if="user.userRole !== 'admin'">
+            <button
             class="btn btn-primary"
             id="deleteBtn"
             @click="this.$store.dispatch('deleteUser', user.user_id)">
@@ -102,6 +102,9 @@ img {
 }
 #editBtn:hover ,#deleteBtn:hover {
   transform: scale(1.07);
+}
+#title{
+  color: #efefef;
 }
 </style>
 
