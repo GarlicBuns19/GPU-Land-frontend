@@ -13,7 +13,6 @@
           <div class="card-body">
             <h3 class="card-title">
               {{ graphic.gpuNoA }} {{ graphic.gpuNrAr }} {{ graphic.gpuGen }}
-              {{ graphic.gpuChip }}
             </h3>
             <h3>Year {{ graphic.released }}</h3>
             <p>
