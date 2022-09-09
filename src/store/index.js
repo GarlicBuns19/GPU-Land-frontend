@@ -6,12 +6,10 @@ export default createStore({
     singleGraphic: null,
     user: null || JSON.parse(localStorage.getItem("user")),
     msg: null,
-    admin: false,
     users: null,
     singleUser: null,
     cart: null,
     asc: false,
-    userUser: false,
   },
   getters: {},
   mutations: {
@@ -37,18 +35,6 @@ export default createStore({
     },
   },
   actions: {
-    admincheck: (context) => {
-      let user = context.state.user;
-      if (user != null) {
-        if (user.userRole === "admin") {
-          context.state.admin = true;
-        }
-        if (user.userRole === "user") {
-          context.state.userUser = true;
-        }
-        context.dispatch("getCart");
-      }
-    },
     logout: (context) => {
       context.state.user = null
       // context.state.cart = null

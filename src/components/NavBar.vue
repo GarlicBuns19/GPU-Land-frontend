@@ -101,13 +101,13 @@
             ><h3>Graphic Cards</h3></router-link
           >
         </li>
-        <li v-if="admin == true" data-bs-dismiss="offcanvas">
-          <router-link class="routerLink" to="/admin/products"
+        <li v-if="this.$store.state.user != null" data-bs-dismiss="offcanvas">
+          <router-link class="routerLink" to="/admin/products" v-if="this.$store.state.user.userRole == 'admin'"
             ><h3>Admin Products</h3></router-link
           >
         </li>
-        <li v-if="admin" data-bs-dismiss="offcanvas">
-          <router-link class="routerLink" to="/admin/users"
+        <li v-if="this.$store.state.user != null" data-bs-dismiss="offcanvas">
+          <router-link class="routerLink" to="/admin/users" v-if="this.$store.state.user.userRole == 'admin'"
             ><h3>Admin Users</h3></router-link
           >
         </li>

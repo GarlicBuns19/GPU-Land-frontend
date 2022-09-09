@@ -1,24 +1,32 @@
 <template>
-    <button @click="gb">GB</button>
-    <button @click="year">Year</button>
+  <button @click="gb">GB</button>
+  <button @click="year">Year</button>
   <div class="container">
     <div v-if="graphics" class="row">
-      <input class="form-control" type="search" name="search" pattern=".*\S.*" v-model="search" required
-                        placeholder="Search Bar" />
-                        <select class="form-control" name="" id="memoryType" v-model="memoryType">
-                        <option value="All" disabled>All memoryTypes</option>
-                        <option value="GDDR6">GDDR6</option>
-                        <option value="GDDR6X">GDDR6X</option>
-                        <option value="GDDR5">GDDR5</option>
-                    </select>
+      <input
+        class="form-control"
+        type="search"
+        name="search"
+        pattern=".*\S.*"
+        v-model="search"
+        required
+        placeholder="Search Bar"
+      />
+      <select class="form-control" name="" id="memoryType" v-model="memoryType">
+        <option value="All" disabled>All memoryTypes</option>
+        <option value="GDDR6">GDDR6</option>
+        <option value="GDDR6X">GDDR6X</option>
+        <option value="GDDR5">GDDR5</option>
+      </select>
       <div
         class="col-md-6 col-lg-4"
         v-for="graphic in graphics"
         :key="graphic.gpu_id"
       >
-      
         <div class="card my-3">
-          <div div class="card-img"><img :src="graphic.gpuFront_Img" alt="..." class="img-fluid" /></div>
+          <div div class="card-img">
+            <img :src="graphic.gpuFront_Img" alt="..." class="img-fluid" />
+          </div>
           <div class="card-body">
             <h3 class="card-title">
               {{ graphic.gpuNoA }} {{ graphic.gpuNrAr }} {{ graphic.gpuGen }}
@@ -73,48 +81,51 @@ export default {
       return this.$store.state.graphics;
     },
     graphicsS() {
-            return this.$store.state.graphics?.filter((graphics) => {
-                let isMatch = true;
-                if (!graphics.gpuNoA.toLowerCase().includes(this.search)) {
-                    isMatch = false;
-                }
-                if (this.memoryType !== "All" && this.memoryType !== graphics.memoryType) {
-                    isMatch = false;
-                }
-                return isMatch;
-            });
-        },
+      return this.$store.state.graphics?.filter((graphics) => {
+        let isMatch = true;
+        if (!graphics.gpuNoA.toLowerCase().includes(this.search)) {
+          isMatch = false;
+        }
+        if (
+          this.memoryType !== "All" &&
+          this.memoryType !== graphics.memoryType
+        ) {
+          isMatch = false;
+        }
+        return isMatch;
+      });
+    },
   },
-  data(){
-    return{
+  data() {
+    return {
       search: "",
-      memoryType: ""
-    }
+      memoryType: "",
+    };
   },
-  methods : {
+  methods: {
     year() {
-        let gpus = this.$store.state.graphics;
-        gpus.sort((a,b) => {
-            if(a.released - b.released){
-                return -1
-            }
-        })
+      let gpus = this.$store.state.graphics;
+      gpus.sort((a, b) => {
+        if (a.released - b.released) {
+          return -1;
+        }
+      });
     },
     gb() {
-        let gpus = this.$store.state.graphics;
-        gpus.sort((a,b) => {
-            if(a.memoryGb - b.memoryGb){
-                return -1
-            }
-        })
-    }
-  }
+      let gpus = this.$store.state.graphics;
+      gpus.sort((a, b) => {
+        if (a.memoryGb - b.memoryGb) {
+          return -1;
+        }
+      });
+    },
+  },
 };
 </script>
   <style scoped>
-  h1{
-    color: #efefef;
-  }
+h1 {
+  color: #efefef;
+}
 .card-img {
   background-color: transparent;
   height: 40%;
@@ -123,7 +134,7 @@ export default {
   transition: 0.3s ease;
 }
 .card {
-  background-color: rgba(0, 0, 0, 0.144);;
+  background-color: rgba(0, 0, 0, 0.144);
   color: #efefef;
   border: 2px solid;
   border-radius: 20px;
@@ -157,7 +168,7 @@ export default {
   text-decoration: none;
 }
 #viewBtn {
-    margin: 0 0 0 120px;
+  margin: 0 0 0 120px;
 }
 /* View Btn */
 button {
@@ -216,13 +227,13 @@ img {
 @keyframes rgb {
   /* 0%  { color: #efefef; } */
   13.3% {
-    border:2px solid #df40ff;
+    border: 2px solid #df40ff;
   }
   33.6% {
-    border:2px solid #5b42f3;
+    border: 2px solid #5b42f3;
   }
   54% {
-    border:2px solid #00ddeb;
+    border: 2px solid #00ddeb;
   }
 }
 </style>
