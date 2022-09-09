@@ -56,17 +56,32 @@
             </ul>
           </div>
         </div>
+        <div class="col-md-12" id="currentYear">
+          <h5>Copyright&copy {{ currentYear }} Ra'ees Benny</h5>
+        </div>
       </div>
     </div>
   </div>
 </template>
-
+<script>
+export default {
+  data() {
+    return {
+      currentYear: new Date().getFullYear(),
+    };
+  },
+};
+</script>
 <style scoped>
 #footer {
   color: hsl(0, 0%, 70%);
   text-align: left;
   margin: 20px 0 0 0;
   padding: 10px 0 0 0;
+}
+#currentYear{
+  display: flex;
+  justify-content: center;
 }
 h4 {
   font-weight: 600;
