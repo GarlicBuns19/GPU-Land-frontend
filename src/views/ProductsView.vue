@@ -128,7 +128,7 @@ export default {
     gb() {
       let gpus = this.$store.state.graphics;
       gpus.sort((a, b) => {
-        if (a.memoryGb < b.memoryGb) {
+        if (a.memoryGb - b.memoryGb) {
           return -1;
         }
       });
