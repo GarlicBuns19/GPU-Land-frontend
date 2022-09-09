@@ -9,9 +9,9 @@ export default createStore({
     admin: false,
     users: null,
     singleUser: null,
-    userUser: false,
     cart: null,
     asc: false,
+    userUser: false,
   },
   getters: {},
   mutations: {
@@ -263,7 +263,7 @@ export default createStore({
           context.dispatch("fetchUsers");
         });
     },
-    // Delete Sinngle User
+    // Delete Single User
     deleteSUser: async (context, userid) => {
       fetch(`https://gpu-land.herokuapp.com/users/${userid}`, {
       // fetch(`http://localhost:3001/users/${userid}`, {

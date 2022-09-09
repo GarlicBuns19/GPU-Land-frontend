@@ -28,7 +28,7 @@
           <h2>Loged in</h2>
         </div>
         <div v-else>
-          <h2>Wrong data</h2>
+          <h2>Loading..</h2>
         </div>
       </div>
       <button type="submit" id="loginBtn">Login</button>

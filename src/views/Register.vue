@@ -41,14 +41,10 @@
       class="inputs my-2 p-1"
       required
     />
-    
+
     <center>
       <div style="border: 1px solid #efefef; height: 1px; width: 20%"></div>
     </center>
-    <!-- <div v-if="clicked">
-      <div v-if="user">Loged in</div>
-      <div v-else>Wrong data</div>
-    </div> -->
     <button id="resBtn" type="submit">Register</button>
   </form>
   <div v-if="msg">

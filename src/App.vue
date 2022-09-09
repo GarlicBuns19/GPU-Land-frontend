@@ -1,7 +1,7 @@
 <template>
-<div id="nav">
+<nav id="nav">
     <NavBar/>
-</div>
+</nav>
 <center>
       <div style="border: 3px solid #efefef; height: 1px; width: 100%"></div>
     </center>
@@ -45,16 +45,14 @@ export default {
 /* nav {
   padding: 30px;
 }
-
 nav a {
   font-weight: bold;
   color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
+} */
+nav h3.router-link-exact-active {
   color: #42b983;
 }
-@media screen and (max-width:350px) {
+/* @media screen and (max-width:350px) {
   nav{
     display: none;
   }
