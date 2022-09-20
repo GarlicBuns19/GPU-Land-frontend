@@ -1,10 +1,13 @@
 <template>
   <div class="container">
     <div v-if="graphics" class="row">
-      <div class="col-md-6 d-flex justify-content-center">
+      <div class="col-md-4 d-flex justify-content-center py-2">
         <button @click="gb">GB</button>
       </div>
-      <div class="col-md-6 d-flex justify-content-center">
+      <div class="col-md-4 d-flex justify-content-center py-2">
+        <button @click="reset">Reset Filters</button>
+      </div>
+      <div class="col-md-4 d-flex justify-content-center py-2">
         <button @click="year">Year</button>
       </div>
       <div class="col-md-6">
@@ -14,8 +17,8 @@
           name="search"
           pattern=".*\S.*"
           v-model="search"
-          required
           placeholder="Search Bar"
+          required
         />
       </div>
       <div class="col-md-6">
@@ -87,17 +90,23 @@
 </template>
   <script>
 export default {
+  data() {
+    return {
+      search: "",
+      memoryType: "All",
+    };
+  },
   mounted() {
     this.$store.dispatch("fetchGraphics");
   },
   computed: {
+    // graphics() {
+    //   return this.$store.state.graphics;
+    // },
     graphics() {
-      return this.$store.state.graphics;
-    },
-    graphicsS() {
       return this.$store.state.graphics?.filter((graphics) => {
         let isMatch = true;
-        if (!graphics.gpuNoA.toLowerCase().includes(this.search)) {
+        if (!graphics.gpuNoA.toLowerCase().includes(this.search.toLowerCase())) {
           isMatch = false;
         }
         if (
@@ -110,28 +119,17 @@ export default {
       });
     },
   },
-  data() {
-    return {
-      search: "",
-      memoryType: "",
-    };
-  },
   methods: {
     year() {
       let gpus = this.$store.state.graphics;
-      gpus.sort((a, b) => {
-        if (a.released - b.released) {
-          return -1;
-        }
-      });
+      gpus.sort((a, b) => a.released - b.released);
     },
     gb() {
       let gpus = this.$store.state.graphics;
-      gpus.sort((a, b) => {
-        if (a.memoryGb - b.memoryGb) {
-          return -1;
-        }
-      });
+      gpus.sort((a, b) => a.memoryGb - b.memoryGb);
+    },
+    reset() {
+      window.location.reload();
     },
   },
 };
