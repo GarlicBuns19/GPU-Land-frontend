@@ -51,8 +51,7 @@
             </div>
             <div class="col-6 col-md-6">
               <h2>
-                {{ singleGraphic[0].gpuNoA }} {{ singleGraphic[0].gpuNrAr }}
-                {{ singleGraphic[0].gpuGen }}
+                {{ singleGraphic[0].memoryGb }}GB {{ singleGraphic[0].memoryType }}
               </h2>
             </div>
           </div>
@@ -110,14 +109,14 @@
               <h2>R {{ singleGraphic[0].price }}</h2>
             </div>
           </div>
-      <button
-        class="btn btn-primary"
-        type="button"
-        @click="this.$store.dispatch('addCart', singleGraphic[0])"
-        id="addCartBtn"
-      >
-        Add to cart
-      </button>
+          <button
+            class="btn btn-primary"
+            type="button"
+            @click="this.$store.dispatch('addCart', singleGraphic[0])"
+            id="addCartBtn"
+          >
+            Add to cart
+          </button>
         </div>
       </div>
     </div>
@@ -154,6 +153,7 @@ img {
 #info {
   margin: 20px 0 0 0;
   color: #efefef;
+  text-align: left;
 }
 /* #info .row {
   border-bottom: 2px solid;

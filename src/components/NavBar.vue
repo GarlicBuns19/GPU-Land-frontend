@@ -263,6 +263,10 @@ ul {
   color: #efefef;
   padding: 5px;
   border-radius: 10px;
+  transition: all .6s ease-in-out;
+}
+#logout:hover{
+  transform: scale(1.2);
 }
 #navOff li {
   display: inline;
