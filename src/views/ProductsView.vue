@@ -1,13 +1,13 @@
 <template>
   <div class="container">
-    <div v-if="graphics" class="row">
-      <div class="col-md-4 d-flex justify-content-center py-2">
+    <div v-if="graphics" class="row mx-auto">
+      <div class="col-md-6 d-flex justify-content-center py-2">
         <button @click="gb">GB</button>
       </div>
-      <div class="col-md-4 d-flex justify-content-center py-2">
+      <!-- <div class="col-md-4 d-flex justify-content-center py-2">
         <button @click="reset">Reset Filters</button>
-      </div>
-      <div class="col-md-4 d-flex justify-content-center py-2">
+      </div> -->
+      <div class="col-md-6 d-flex justify-content-center py-2">
         <button @click="year">Year</button>
       </div>
       <div class="col-md-6">
@@ -128,9 +128,9 @@ export default {
       let gpus = this.$store.state.graphics;
       gpus.sort((a, b) => a.memoryGb - b.memoryGb);
     },
-    reset() {
-      window.location.reload();
-    },
+    // reset() {
+    //   window.location.reload();
+    // },
   },
 };
 </script>

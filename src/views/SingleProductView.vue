@@ -114,6 +114,7 @@
             type="button"
             @click="this.$store.dispatch('addCart', singleGraphic[0])"
             id="addCartBtn"
+            v-if="this.$store.state.user != null"
           >
             Add to cart
           </button>
