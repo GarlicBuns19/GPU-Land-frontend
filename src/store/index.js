@@ -261,6 +261,7 @@ export default createStore({
           console.log(data.msg);
           context.state.user = null
           context.state.cart = null
+          localStorage.removeItem("user")
           router.push('/login');
         });
     },
