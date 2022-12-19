@@ -28,7 +28,7 @@
           id="memoryType"
           v-model="memoryType"
         >
-          <option value="All" disabled>All memoryTypes</option>
+          <option value="All">All memoryTypes</option>
           <option value="GDDR6">GDDR6</option>
           <option value="GDDR6X">GDDR6X</option>
           <option value="GDDR5">GDDR5</option>
