@@ -1,5 +1,7 @@
 # gpu-front
 
+# This is my capstone project
+
 ## Project setup
 ```
 npm install
